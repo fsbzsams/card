@@ -3,73 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    
-    <!-- ⚠️ ЗАЩИТА ОТ ПОИСКОВИКОВ: запрет индексации и перехода по ссылкам -->
     <meta name="robots" content="noindex, nofollow">
-    
-    <title>Tom Kor — Аналитик Неочевидного</title>
+    <title>Tom Tot — Specialist in Extracting the Non-Obvious</title>
     <style>
-        /* ===== ОБЩИЕ СТИЛИ ===== */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0d0d0d;
+            color: #e0e0e0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--tg-theme-bg-color, #ffffff);
-            color: var(--tg-theme-text-color, #000000);
+            padding: 20px;
             text-align: center;
-            transition: background 0.3s, color 0.3s;
         }
 
         .card {
-            max-width: 340px;
+            max-width: 400px;
             width: 100%;
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 30px 20px 25px;
         }
 
-        /* ===== АВАТАР ===== */
         .avatar {
-            width: 110px;
-            height: 110px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--tg-theme-button-color, #2ea6ff);
-            margin-bottom: 15px;
-            background: #e0e0e0; /* фон-заглушка пока не загружено фото */
+            border: 3px solid #c9a96e;
+            margin-bottom: 18px;
+            background: #2a2a2a;
         }
 
-        /* ===== ИМЯ И РОЛЬ ===== */
         .name {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
+            color: #f0f0f0;
             margin-bottom: 4px;
-            color: var(--tg-theme-text-color, #000000);
+            letter-spacing: 0.3px;
         }
 
         .role {
             font-size: 15px;
             font-weight: 500;
-            color: var(--tg-theme-button-color, #2ea6ff);
-            margin-bottom: 20px;
-            letter-spacing: 0.3px;
+            color: #c9a96e;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
         }
 
-        /* ===== БЛОК РЕЗЮМЕ ===== */
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #999;
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: #c9a96e;
+            color: #0d0d0d;
+            border-color: #c9a96e;
+            font-weight: 600;
+        }
+
         .resume {
             text-align: left;
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--tg-theme-text-color, #333333);
-            background: var(--tg-theme-secondary-bg-color, #f7f7f8);
+            font-size: 15px;
+            line-height: 1.7;
+            color: #cccccc;
+            background: #222222;
             border-radius: 14px;
             padding: 18px 16px;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
+            border-left: 3px solid #c9a96e;
         }
 
         .resume p {
@@ -80,243 +103,747 @@
             margin-bottom: 0;
         }
 
-        /* ===== РАЗДЕЛИТЕЛЬ ===== */
-        .divider {
-            margin: 0 0 18px 0;
-            border-top: 1px solid var(--tg-theme-hint-color, #dddddd);
-            opacity: 0.4;
-        }
-
-        /* ===== АНОНИМНЫЙ ЧАТ ===== */
-        .chat-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--tg-theme-hint-color, #999999);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .chat-box {
-            border: 1px solid var(--tg-theme-hint-color, #e0e0e0);
-            border-radius: 12px;
-            padding: 10px;
-            height: 130px;
-            overflow-y: auto;
-            margin-bottom: 10px;
-            text-align: left;
-            font-size: 13px;
-            background: var(--tg-theme-secondary-bg-color, #f7f7f8);
-            color: var(--tg-theme-text-color, #000000);
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .msg {
-            padding: 8px 12px;
-            border-radius: 12px;
-            max-width: 82%;
-            word-wrap: break-word;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        /* Сообщение пользователя (синее, справа) */
-        .msg.user {
-            align-self: flex-end;
-            background: var(--tg-theme-button-color, #2ea6ff);
-            color: var(--tg-theme-button-text-color, #ffffff);
-            border-bottom-right-radius: 4px;
-        }
-
-        /* Ответ (серое, слева) */
-        .msg.reply {
-            align-self: flex-start;
-            background: #e9e9ed;
-            color: #1c1c1e;
-            border-bottom-left-radius: 4px;
-        }
-
-        /* ===== ПОЛЕ ВВОДА ===== */
-        .input-row {
-            display: flex;
-            gap: 8px;
-        }
-
-        #messageInput {
-            flex: 1;
-            padding: 12px;
-            border: 1px solid var(--tg-theme-hint-color, #e0e0e0);
-            border-radius: 12px;
-            background: var(--tg-theme-secondary-bg-color, #f7f7f8);
-            color: var(--tg-theme-text-color, #000000);
+        .contact-notice {
             font-size: 14px;
-            outline: none;
+            color: #c9a96e;
+            margin-bottom: 18px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
         }
 
-        #sendBtn {
-            padding: 0 18px;
-            background: var(--tg-theme-button-color, #2ea6ff);
-            color: var(--tg-theme-button-text-color, #ffffff);
-            border: none;
+        .qr-section {
+            margin-top: 10px;
+        }
+
+        .qr-code {
+            width: 136px;
+            height: 136px;
             border-radius: 12px;
-            font-weight: 600;
-            font-size: 16px;
+            border: 3px solid #c9a96e;
+            margin-bottom: 12px;
+            background: #fff;
+            padding: 6px;
             cursor: pointer;
-            transition: opacity 0.15s;
+            transition: opacity 0.2s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        #sendBtn:active {
-            opacity: 0.7;
+        .qr-code:active {
+            opacity: 0.8;
         }
 
-        /* Подсказка */
-        .hint {
-            font-size: 11px;
-            margin-top: 8px;
-            color: var(--tg-theme-hint-color, #aaaaaa);
+        .session-id {
+            font-size: 9px;
+            color: #888;
+            word-break: break-all;
             line-height: 1.4;
+            max-width: 280px;
+            margin: 0 auto;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            margin-bottom: 16px;
         }
 
-        /* ===== ЭКРАН ОШИБКИ (ДЛЯ ТЕХ, КТО НЕ В TELEGRAM) ===== */
-        .error-screen {
-            display: none;          /* По умолчанию скрыт */
+        .session-id:active {
+            background: #2a2a2a;
+        }
+
+        .details-toggle {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: #2a2a2a;
+            color: #c9a96e;
+            border: 1px solid #444;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 4px;
+        }
+
+        .details-toggle:active {
+            background: #333;
+        }
+
+        .details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease, margin 0.3s ease;
+            margin-top: 0;
+        }
+
+        .details-content.open {
+            max-height: 9000px;
+            margin-top: 12px;
+        }
+
+        .detail-card {
+            text-align: left;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #cccccc;
+            background: #222222;
+            border-radius: 14px;
+            padding: 18px 16px;
+            margin-bottom: 10px;
+            border-left: 3px solid #c9a96e;
+        }
+
+        .detail-card h3 {
+            color: #c9a96e;
+            font-size: 16px;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .detail-card p {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .detail-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 6px 0 10px 0;
+        }
+
+        .detail-card ul li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .detail-card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #c9a96e;
+            font-weight: bold;
+        }
+
+        .service-block {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .service-block strong {
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+
+        .service-block ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 6px 0 10px 0;
+        }
+
+        .service-block ul li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .service-block ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #c9a96e;
+            font-weight: bold;
+        }
+
+        .price {
+            color: #cccccc;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .prepayment {
+            font-weight: 700;
+        }
+
+        .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #1a1a1a;
-            color: #ffffff;
-            text-align: center;
-            padding: 40vh 20px 0 20px;
-            font-size: 18px;
-            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 65vh;
+            border-radius: 16px;
+            border: 2px solid #c9a96e;
+            background: #fff;
+            padding: 8px;
+            cursor: default;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #c9a96e;
+            color: #0d0d0d;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
             z-index: 9999;
-            line-height: 1.6;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        .error-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0d0d0d;
+            color: #f0f0f0;
+            padding: 40vh 20px 0;
+            text-align: center;
+            z-index: 9999;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
-    <!-- ⛔ ЭКРАН ДЛЯ ВСЕХ, КРОМЕ TELEGRAM -->
-    <div id="tg-error" class="error-screen">
-        📱<br>Пожалуйста, откройте визитку<br>через приложение Telegram
-    </div>
+    <div id="tg-error" class="error-screen">📱<br>Please open this card via Telegram</div>
 
-    <!-- ✅ ОСНОВНАЯ ВИЗИТКА (видна только в Telegram) -->
     <div id="main-content" class="card" style="display: none;">
-        
-        <!-- Аватар: замените src на прямую ссылку вашего фото -->
-        <img src="https://github.githubassets.com/assets/github-logo-55c5b9a77a3b.svg" alt="Tom Kor" class="avatar">
+        <img src="photo.jpg" alt="Tom Tot" class="avatar" />
+        <div class="name" id="name-text">Tom Tot</div>
+        <div class="role" id="role-text">Specialist in Extracting the Non-Obvious</div>
 
-        <div class="name">Tom Kor</div>
-        <div class="role">Аналитик Неочевидного</div>
-
-        <!-- Резюме -->
-        <div class="resume">
-            <p>🔍 Нахожу скрытые закономерности там, где другие видят хаос.</p>
-            <p>📊 Превращаю разрозненные данные в ясные инсайты и стратегии.</p>
-            <p>🧠 Помогаю принимать решения, когда очевидные ответы не работают.</p>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('en')">🇬🇧 EN</button>
+            <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
         </div>
 
-        <div class="divider"></div>
+        <div class="resume" id="resume-text">
+            <p>🔍 Find hidden patterns where others see chaos.</p>
+            <p>🧩 Develop non-standard strategies for complex challenges.</p>
+            <p>💡 Turn non-obvious insights into clear solutions.</p>
+        </div>
 
-        <!-- Анонимная связь -->
-        <div class="chat-title">💬 Анонимная связь</div>
-        <div id="chatContainer" class="chat-box">
-            <!-- Сообщения будут добавляться сюда -->
+        <div class="contact-notice" id="contact-notice">
+            🔐 Контакты через Session ↙️
         </div>
-        <div class="input-row">
-            <input type="text" id="messageInput" placeholder="Задайте вопрос..." autocomplete="off">
-            <button id="sendBtn">➤</button>
-        </div>
-        <div class="hint">
-            🔒 Ваш аккаунт не раскрывается. Ответ придёт сюда же.
+
+        <div class="qr-section">
+            <img src="qrcode.jpg" alt="Session QR" class="qr-code" onclick="openModal()" />
+            <div class="session-id" id="sessionId" onclick="copySession()">
+                0571165c233236eafe3631d39e7cde3fcd6c9f1bb22b3a60b32803d07c86a8c773
+            </div>
+
+            <button class="details-toggle" id="details-btn" onclick="toggleDetails()">Open Details</button>
+            <div class="details-content" id="details-content"></div>
         </div>
     </div>
 
-    <!-- ===== СКРИПТЫ ===== -->
+    <div class="modal" id="qrModal" onclick="closeModal()">
+        <img src="qrcode.jpg" alt="Session QR" onclick="event.stopPropagation()" />
+    </div>
+
+    <div class="toast" id="toast"></div>
+
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        // ПРОВЕРКА: открыто ли в Telegram?
-        if (!window.Telegram || !window.Telegram.WebApp) {
-            // Открыто НЕ в Telegram → показываем ошибку
-            document.getElementById('tg-error').style.display = 'block';
-            document.getElementById('main-content').style.display = 'none';
-        } else {
-            // Открыто В Telegram → показываем визитку
-            const app = window.Telegram.WebApp;
-            app.ready(); // Сообщаем Telegram, что приложение загрузилось
+        (function() {
+            /* --- Инициализация Telegram Web App --- */
+            if (!window.Telegram?.WebApp) {
+                document.getElementById('tg-error').style.display = 'block';
+            } else {
+                window.Telegram.WebApp.ready();
+                document.getElementById('tg-error').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            }
 
-            document.getElementById('tg-error').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
+            /* --- Состояние --- */
+            let currentLang = 'en';
+            let detailsOpen = false;
 
-            // ---------------------------------------------------------
-            // ⚙️ НАСТРОЙКИ: замените на свои реальные данные
-            // ---------------------------------------------------------
-            const BOT_TOKEN = 'СЮДА_ТОКЕН_ВАШЕГО_БОТА';       // получите у @BotFather
-            const MY_CHAT_ID = 'СЮДА_ВАШ_ЧИСЛОВОЙ_TELEGRAM_ID'; // получите у @getmyid_bot
-            // ---------------------------------------------------------
-
-            // Генерируем случайный ID для этой сессии (анонимность)
-            const SENDER_ID = 'user_' + Math.random().toString(36).substr(2, 9);
-
-            // DOM-элементы чата
-            const chatContainer = document.getElementById('chatContainer');
-            const messageInput = document.getElementById('messageInput');
-            const sendBtn = document.getElementById('sendBtn');
-
-            /**
-             * Отправляет сообщение боту
-             */
-            async function sendMessage() {
-                const text = messageInput.value.trim();
-                if (!text) return; // пустое сообщение не шлём
-
-                // Показываем сообщение пользователя в чате
-                addMessage(text, 'user');
-                messageInput.value = '';
-
-                // Формируем текст для пересылки владельцу
-                const msgToBot = `📩 От ${SENDER_ID}:\n\n${text}`;
-
-                // Отправляем через Telegram Bot API
-                try {
-                    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: MY_CHAT_ID,
-                            text: msgToBot
-                        })
-                    });
-                } catch (e) {
-                    console.log('Ошибка отправки:', e);
+            /* --- Данные --- */
+            const data = {
+                en: {
+                    name: "Tom Tot",
+                    role: "Specialist in Extracting the Non-Obvious",
+                    resume: [
+                        "🔍 Find hidden patterns where others see chaos.",
+                        "🧩 Develop non-standard strategies for complex challenges.",
+                        "💡 Turn non-obvious insights into clear solutions."
+                    ],
+                    contact: "🔐 Contact via Session ↙️",
+                    detailsBtn: "Open Details",
+                    detailsBtnClose: "Close Details",
+                    copied: "✅ Copied",
+                    failed: "⚠️ Copy failed",
+                    detailsCards: [
+                        {
+                            title: "👤 Profile",
+                            content: `
+                                <ul>
+                                    <li>I work at the level where data ends and intuition begins. I do not replace analysts, lawyers, or due diligence. I add a layer absent from reports: a cross-section of the hidden reality of a deal, a company, negotiations, or a board of directors.</li>
+                                    <li>The tool is managed lucid dreaming. I enter it with a specific business request. I return with observed facts translated into business language. This is not esotericism — it is work with unconscious layers of perception. Experience — 20+ years.</li>
+                                    <li>I contract only with principals. The role is not publicized. Reports are not stored on corporate servers.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "⚙️ Principle",
+                            content: `
+                                <ul>
+                                    <li>Every deal, company, or negotiation has a hidden part. It doesn't make it into reports, isn't spoken aloud at meetings, and isn't captured by conventional analysis. Yet it often determines the outcome. This is the shadow contour — a non-obvious layer of reality lying beyond ordinary perception.</li>
+                                    <li>Lucid dreaming is a tool for direct access there. No offices, model-building, or rumor collection. Input — your request. Output — observed facts from the situation's field: what is hidden, where it manifests, how it influences. These are not prophecies, but another method of information gathering. I collect — you decide.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "🔒 Confidentiality",
+                            content: `
+                                <ul>
+                                    <li>NDA before the first conversation.</li>
+                                    <li>I do not name names in reports — only roles and locations.</li>
+                                    <li>I do not advise "do this." I witness the picture. The conclusions are yours.</li>
+                                    <li>If I sense bias or a conflict of interest — I decline the order.</li>
+                                    <li>I keep a closed accuracy journal. Match statistics available after the first contract.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "🔄 Algorithm",
+                            content: `
+                                <p><strong>1. First Contact — Session.</strong><br>You write to me on Session. A secure channel, no names. Briefly describe the request. If I see an opportunity to help — we arrange a closed meeting.</p>
+                                <p><strong>2. Closed Meeting.</strong><br>Personal conversation or secure line call. We sign an NDA. We discuss the request comprehensively: essence, stakes, known risks, key figures. We select the service. We formulate 1–2 precise questions for the dream. We agree on a date and terms. If I understand I cannot be useful — I say so directly. Meeting without payment or obligation.</p>
+                                <p><strong>3. Context Immersion.</strong><br>You provide the outline: company structure, names of key figures, photos (if possible). No confidential figures — only a framework for tuning. I study public information. The subconscious needs to "recognize" the target.</p>
+                                <p><strong>4. Intention Setting.</strong><br>Before sleep, I formulate a precise request. For example: "I will see the hidden risks of transaction X" or "I will live through the negotiations from the opponent's side and learn their vulnerability."</p>
+                                <p><strong>5. The Dream.</strong><br>I enter a lucid dream. I hold the request. I observe. I do not control the picture — I accept it. The dream shows: where there is density, where there is rupture, where there is movement, where there is silence. I wake up — I write down everything I saw, heard, felt immediately.</p>
+                                <p><strong>6. Translation into Business Language.</strong><br>I extract meaning from observed facts. This is not symbol interpretation.<br>Example: "Rotten foundation" → hidden legal issue.<br>Example: "One figure sits with their back to the table" → one of the top executives is disengaged or sabotaging.<br>Example: "A mechanism overheating and smelling of burning" → the company is at its limit, possible deadline failure.</p>
+                                <p><strong>7. Delivery.</strong><br>A call or meeting. I present: what is hidden, where it manifests, how it influences. You ask questions. I don't defend the picture — I witness it. The conclusions are yours.</p>
+                            `
+                        },
+                        {
+                            title: "🧠 Mechanism",
+                            content: `
+                                <ul>
+                                    <li>The brain does not filter during sleep. It sees connections that are blocked during the day by logic, fears, and social norms.</li>
+                                    <li>No fabrications. Only observation. The task is to be a clean mirror, not an artist.</li>
+                                    <li>Accuracy confirmed. I keep a closed journal: request, observation, interpretation, real outcome. You will have access to these statistics.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "⚠️ Important",
+                            content: `
+                                <ul>
+                                    <li>This is not a prediction. It is an additional layer of information. The decision is always yours.</li>
+                                    <li>Sometimes the dream is silent. This is also a signal. I honestly say if there is no answer — you do not pay for emptiness.</li>
+                                    <li>I do not guarantee 100% accuracy. But the percentage is high enough that clients have worked with me for years.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "🗂 Services",
+                            content: `
+                                <ul>
+                                    <li>Quarterly Monitoring (Blind Spot Report × 4) — $80,000 – $120,000 / year</li>
+                                    <li>Annual Board of Directors Contract (12 meetings) — $100,000 – $250,000 / year</li>
+                                    <li>Competitor Field Monitoring (3–5 competitors, quarterly) — $100,000 – $180,000 / year</li>
+                                    <li>"Black Box" Annual Subscription — $200,000 – $400,000 / year</li>
+                                </ul>
+                                <p><span class="prepayment">100% prepayment for new clients. For regulars — negotiable.</span></p>
+                            `
+                        },
+                        {
+                            title: "1️⃣ Dream Due Diligence (Investment Reconnaissance)",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>For:</strong> private investors, venture funds, family offices, CEOs before M&A.</p>
+                                    <ul>
+                                        <li>You've already completed financial and legal due diligence. There remains a feeling of "something's off" — or you need intuitive validation before a major bet.</li>
+                                        <li>I enter the dream with the request "show what is hidden in deal X." By morning — a report: not "invest," but "a glass bridge over rusty water, the partner stands with their back turned — possible deception on their side."</li>
+                                    </ul>
+                                    <p><span class="price">Cost: $15,000 – $30,000 per dream. Package of three deals — $40,000 – $70,000. 100% prepayment.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "2️⃣ Night Board of Directors (Avatar Consulting)",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>For:</strong> owners, CEOs, founders.</p>
+                                    <ul>
+                                        <li>You provide 3–7 personas: real people, departments, roles. I enter the dream, gather their avatars, and hold a session. I ask your questions. I listen to what people don't say aloud.</li>
+                                        <li>By morning — a protocol: who said what, how they looked, who was silent, who sat with their back turned.</li>
+                                    </ul>
+                                    <p><span class="price">Cost: $20,000 – $40,000 per session. Quarterly subscription — $45,000 – $80,000. 100% prepayment.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "3️⃣ Competitor Infiltration",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>For:</strong> CEOs, strategy chiefs, R&D, founders in fierce competitive battles.</p>
+                                    <ul>
+                                        <li>You provide the competitor's company name. I enter the dream and observe their "field": state, vulnerabilities, upcoming moves, internal conflicts. This is not espionage — I do not obtain documents. I read the picture.</li>
+                                        <li>Report: "the ship is painting its sides, but there's a leak inside" or "the mechanism is overheating, they are preparing an attack on your segment."</li>
+                                    </ul>
+                                    <p><span class="price">Cost: $20,000 – $35,000 per infiltration. Yearly competitor field monitoring — $100,000 – $180,000. No more than 2–3 infiltrations per year for one client.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "4️⃣ \"Black Box\" of Negotiations",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>For:</strong> company heads, managing partners, high-level lawyers and diplomats.</p>
+                                    <ul>
+                                        <li>You provide context: sides, subject, stakes. I enter the dream and live through the negotiations in turn for all participants. I search for breaking points, trigger phrases, hidden threats.</li>
+                                        <li>By morning — a negotiation map: atmosphere, breaking moment, gesture or phrase that changes the course, the most dangerous point.</li>
+                                    </ul>
+                                    <p><span class="price">Cost: $25,000 – $50,000 per session. Annual subscription — $200,000 – $400,000. 100% prepayment.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "5️⃣ Blind Spot Report",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>For:</strong> CEOs, owners, board chairmen.</p>
+                                    <ul>
+                                        <li>You provide the org chart and names of key top managers. I enter the dream with the request "show where the tension is in the company that is being kept silent about." The dream shows a picture: floors, colors, temperatures, sounds.</li>
+                                        <li>Report — 1–2 pages. No names. No accusations. Only locations and tensions.</li>
+                                    </ul>
+                                    <p><span class="price">Cost: $25,000 – $40,000 one-time. Quarterly monitoring — $80,000 – $120,000 per year.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "6️⃣ Silent Board Member",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>For:</strong> board chairmen, independent directors, owners.</p>
+                                    <ul>
+                                        <li>I do not attend meetings. 24–48 hours before the board meeting, I receive the agenda and materials. I enter the dream. By morning, I deliver one paragraph: a picture of the hidden dynamics of the upcoming meeting. You may read it aloud or use it for preparation.</li>
+                                    </ul>
+                                    <p><span class="price">Cost: $15,000 – $25,000 per meeting. Annual contract — $100,000 – $250,000. Absolute confidentiality.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "📬 Contact",
+                            content: `
+                                <ul>
+                                    <li>First contact — Session. Secure channel, no names. After NDA — a secure line for further work. My name does not appear in corporate systems. The report leaves no traces.</li>
+                                    <li>I work where numbers stay silent.<br>If your request is exactly there — you know how to reach me.</li>
+                                </ul>
+                            `
+                        }
+                    ]
+                },
+                ru: {
+                    name: "Том Тот",
+                    role: "Специалист по извлечению неочевидного",
+                    resume: [
+                        "🔍 Нахожу скрытые закономерности там, где другие видят хаос.",
+                        "🧩 Разрабатываю нестандартные стратегии под сложные задачи.",
+                        "💡 Превращаю неочевидные инсайты в понятные решения."
+                    ],
+                    contact: "🔐 Контакты через Session ↙️",
+                    detailsBtn: "Открыть подробности",
+                    detailsBtnClose: "Закрыть подробности",
+                    copied: "✅ Скопировано",
+                    failed: "⚠️ Не удалось скопировать",
+                    detailsCards: [
+                        {
+                            title: "👤 Профиль",
+                            content: `
+                                <ul>
+                                    <li>Работаю на том уровне, где заканчиваются данные и начинается интуиция. Не заменяю аналитику, юристов и due diligence. Добавляю слой, которого нет в отчётах: срез скрытой реальности сделки, компании, переговоров или совета директоров.</li>
+                                    <li>Инструмент — управляемое осознанное сновидение. Вхожу в него с конкретным бизнес-запросом. Возвращаюсь с наблюдаемыми фактами, переведёнными на деловой язык. Это не эзотерика, а работа с неосознаваемыми слоями восприятия. Стаж — более 20 лет.</li>
+                                    <li>Нанимаюсь только к первым лицам. Роль не афишируется. Отчёты не хранятся на корпоративных серверах.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "⚙️ Принцип",
+                            content: `
+                                <ul>
+                                    <li>У каждой сделки, компании или переговоров есть скрытая часть. Она не попадает в отчёты, не проговаривается на совещаниях, не улавливается привычными методами анализа. Но именно она часто определяет исход. Это теневой контур — неочевидный слой реальности, который лежит за пределами обычного восприятия.</li>
+                                    <li>Осознанное сновидение — инструмент прямого доступа туда. Никаких кабинетов, построения моделей, сбора слухов. На входе — ваш запрос. На выходе — наблюдаемые факты из поля ситуации: что скрыто, где проявляется, как влияет. Это не пророчества, а иной способ сбора информации. Я собираю — Вы решаете.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "🔒 Конфиденциальность",
+                            content: `
+                                <ul>
+                                    <li>NDA до первого разговора.</li>
+                                    <li>Не называю имён в отчётах — только роли и локации.</li>
+                                    <li>Не даю советов «делай так». Свидетельствую картину. Выводы — ваши.</li>
+                                    <li>Если чувствую предвзятость или конфликт интересов — отказываюсь от заказа.</li>
+                                    <li>Веду закрытый журнал точности. Статистика совпадений доступна после первого контракта.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "🔄 Алгоритм",
+                            content: `
+                                <p><strong>1. Первый контакт — Session.</strong><br>Пишете мне в Session. Защищённый канал, никаких имён. Коротко описываете запрос. Если вижу возможность помочь — договариваемся о закрытой встрече.</p>
+                                <p><strong>2. Закрытая встреча.</strong><br>Личная беседа или звонок по защищённой линии. Подписываем NDA. Обсуждаем запрос комплексно: суть, ставки, известные риски, ключевые фигуры. Выбираем услугу. Формулируем 1–2 точных вопроса для сна. Договариваемся о дате и условиях. Если понимаю, что не смогу быть полезен, — говорю прямо. Встреча без оплаты и обязательств.</p>
+                                <p><strong>3. Погружение в контекст.</strong><br>Вы даёте контур: структуру компании, имена ключевых фигур, фото (если возможно). Никаких конфиденциальных цифр — только рамка для настройки. Изучаю публичную информацию. Подсознанию нужно «узнать» цель.</p>
+                                <p><strong>4. Настройка намерения.</strong><br>Перед сном формулирую точный запрос. Например: «Увижу скрытые риски сделки X» или «Проживу переговоры за оппонента и узнаю его уязвимость».</p>
+                                <p><strong>5. Сон.</strong><br>Вхожу в осознанное сновидение. Удерживаю запрос. Наблюдаю. Не управляю картиной — принимаю её. Сон показывает: где плотность, где разрыв, где движение, где тишина. Просыпаюсь — сразу записываю всё что видел, слышал, чувствовал.</p>
+                                <p><strong>6. Перевод на деловой язык.</strong><br>Извлекаю смысл из наблюдаемых фактов. Это не толкование символов.<br>Пример: «Гнилой фундамент» → скрытая юридическая проблема.<br>Пример: «Одна фигура сидит спиной к столу» → кто-то из топов не вовлечён или саботирует.<br>Пример: «Механизм перегревается и пахнет гарью» → компания на пределе, возможен срыв сроков.</p>
+                                <p><strong>7. Передача.</strong><br>Звонок или встреча. Излагаю: что скрыто, где проявляется, как влияет. Вы задаёте вопросы. Не защищаю картину — свидетельствую её. Выводы — ваши.</p>
+                            `
+                        },
+                        {
+                            title: "🧠 Механизм",
+                            content: `
+                                <ul>
+                                    <li>Мозг во сне не фильтрует. Видит связи, которые днём заблокированы логикой, страхами, социальными нормами.</li>
+                                    <li>Никаких придумок. Только наблюдение. Задача — быть чистым зеркалом, а не художником.</li>
+                                    <li>Точность подтверждена. Веду закрытый журнал: запрос, наблюдение, интерпретация, реальный исход. У вас будет доступ к этой статистике.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "⚠️ Важное",
+                            content: `
+                                <ul>
+                                    <li>Это не предсказание. Это дополнительный слой информации. Решение всегда за вами.</li>
+                                    <li>Иногда сон молчит. Это тоже сигнал. Честно скажу, если ответа нет — вы не платите за пустоту.</li>
+                                    <li>100% точности не гарантирую. Но процент достаточно высок, чтобы клиенты работали со мной годами.</li>
+                                </ul>
+                            `
+                        },
+                        {
+                            title: "🗂 Услуги",
+                            content: `
+                                <ul>
+                                    <li>Квартальный мониторинг (Blind Spot Report × 4) — $80 000 – $120 000 / год</li>
+                                    <li>Годовой контракт на советы директоров (12 заседаний) — $100 000 – $250 000 / год</li>
+                                    <li>Мониторинг конкурентного поля (3–5 конкурентов, ежеквартально) — $100 000 – $180 000 / год</li>
+                                    <li>Абонемент «Чёрный ящик» на год — $200 000 – $400 000 / год</li>
+                                </ul>
+                                <p><span class="prepayment">Предоплата 100% для новых клиентов. Для постоянных — обсуждаемо.</span></p>
+                            `
+                        },
+                        {
+                            title: "1️⃣ Сновидческий due diligence (инвест-разведка)",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>Для:</strong> частных инвесторов, венчурных фондов, family office, CEO перед M&A.</p>
+                                    <ul>
+                                        <li>Вы уже провели финансовый и юридический due diligence. Осталось чувство «что-то не так» — или нужна интуитивная валидация перед крупной ставкой.</li>
+                                        <li>Вхожу в сон с запросом «показать скрытое в сделке X». Утром — отчёт: не «вкладывайся», а «стеклянный мост над ржавой водой, партнёр стоит спиной — возможен обман с его стороны».</li>
+                                    </ul>
+                                    <p><span class="price">Стоимость: $15 000 – $30 000 за сон. Пакет из трёх сделок — $40 000 – $70 000. Предоплата 100%.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "2️⃣ Ночной совет директоров (консалтинг с аватарами)",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>Для:</strong> собственников, CEO, основателей.</p>
+                                    <ul>
+                                        <li>Даёте 3–7 персон: реальные люди, отделы, роли. Вхожу в сон, собираю их аватары и провожу заседание. Задаю ваши вопросы. Слушаю то, что люди не говорят вслух.</li>
+                                        <li>Утром — протокол: кто что сказал, как выглядел, кто молчал, кто сидел спиной.</li>
+                                    </ul>
+                                    <p><span class="price">Стоимость: $20 000 – $40 000 за сессию. Квартальный абонемент — $45 000 – $80 000. Предоплата 100%.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "3️⃣ Проникновение в конкурента",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>Для:</strong> CEO, глав стратегии, R&D, основателей в острой конкурентной борьбе.</p>
+                                    <ul>
+                                        <li>Даёте название компании-конкурента. Вхожу в сон и наблюдаю их «поле»: состояние, уязвимости, готовящиеся шаги, внутренние конфликты. Это не шпионаж — не добываю документы. Считываю картину.</li>
+                                        <li>Отчёт: «корабль красит борта, но внутри течь» или «механизм перегревается, готовят атаку на ваш сегмент».</li>
+                                    </ul>
+                                    <p><span class="price">Стоимость: $20 000 – $35 000 за проникновение. Мониторинг конкурентного поля на год — $100 000 – $180 000. Не более 2–3 проникновений в год для одного клиента.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "4️⃣ «Чёрный ящик» переговоров",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>Для:</strong> глав компаний, управляющих партнёров, юристов и дипломатов высокого уровня.</p>
+                                    <ul>
+                                        <li>Даёте контекст: стороны, предмет, ставки. Вхожу в сон и проживаю переговоры по очереди за всех участников. Ищу точки слома, фразы-триггеры, скрытые угрозы.</li>
+                                        <li>Утром — карта переговоров: атмосфера, момент слома, жест или фраза, меняющая ход, самая опасная точка.</li>
+                                    </ul>
+                                    <p><span class="price">Стоимость: $25 000 – $50 000 за сессию. Годовой абонемент — $200 000 – $400 000. Предоплата 100%.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "5️⃣ Blind Spot Report (Отчёт о слепых зонах)",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>Для:</strong> CEO, собственников, председателей советов.</p>
+                                    <ul>
+                                        <li>Даёте оргструктуру и имена ключевых топов. Вхожу в сон с запросом «показать, где в компании напряжение, о котором молчат». Сон показывает картину: этажи, цвета, температуры, звуки.</li>
+                                        <li>Отчёт — 1–2 страницы. Без имён. Без обвинений. Только локации и напряжения.</li>
+                                    </ul>
+                                    <p><span class="price">Стоимость: $25 000 – $40 000 разово. Квартальный мониторинг — $80 000 – $120 000 в год.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "6️⃣ Silent Board Member (Молчаливый член совета)",
+                            content: `
+                                <div class="service-block">
+                                    <p><strong>Для:</strong> председателей советов, независимых директоров, собственников.</p>
+                                    <ul>
+                                        <li>Не присутствую на заседаниях. За 24–48 часов до совета получаю повестку и материалы. Вхожу в сон. Утром передаю один абзац: картину скрытой динамики предстоящего заседания. Можете зачитать или использовать для подготовки.</li>
+                                    </ul>
+                                    <p><span class="price">Стоимость: $15 000 – $25 000 за заседание. Годовой контракт — $100 000 – $250 000. Абсолютная конфиденциальность.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "📬 Связаться",
+                            content: `
+                                <ul>
+                                    <li>Первый контакт — Session. Защищённый канал, никаких имён. После NDA — защищённая линия для дальнейшей работы. Моё имя не появляется в корпоративных системах. Отчёт не оставляет следов.</li>
+                                    <li>Работаю там, где молчат цифры.<br>Если ваш запрос именно там — вы знаете, как со мной связаться.</li>
+                                </ul>
+                            `
+                        }
+                    ]
                 }
+            };
+
+            /* --- DOM элементы --- */
+            const nameText = document.getElementById('name-text');
+            const roleText = document.getElementById('role-text');
+            const resumeText = document.getElementById('resume-text');
+            const contactNotice = document.getElementById('contact-notice');
+            const detailsBtn = document.getElementById('details-btn');
+            const detailsContent = document.getElementById('details-content');
+            const sessionIdEl = document.getElementById('sessionId');
+            const toastEl = document.getElementById('toast');
+            const qrModal = document.getElementById('qrModal');
+            const langBtns = document.querySelectorAll('.lang-btn');
+
+            /* --- Функции --- */
+            function renderDetailsContent() {
+                const cards = data[currentLang].detailsCards;
+                let html = '';
+                cards.forEach(card => {
+                    html += `
+                        <div class="detail-card">
+                            <h3>${card.title}</h3>
+                            ${card.content}
+                        </div>
+                    `;
+                });
+                detailsContent.innerHTML = html;
             }
 
-            /**
-             * Добавляет сообщение на экран чата
-             * @param {string} text - текст сообщения
-             * @param {'user'|'reply'} type - тип сообщения
-             */
-            function addMessage(text, type) {
-                const msgDiv = document.createElement('div');
-                msgDiv.className = 'msg ' + type;
-                msgDiv.textContent = text;
-                chatContainer.appendChild(msgDiv);
-                // Прокрутка чата вниз
-                chatContainer.scrollTop = chatContainer.scrollHeight;
+            window.setLang = function(lang) {
+                currentLang = lang;
+                langBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.textContent.includes(lang.toUpperCase())) {
+                        btn.classList.add('active');
+                    }
+                });
+
+                const d = data[lang];
+                nameText.textContent = d.name;
+                roleText.textContent = d.role;
+                resumeText.innerHTML = d.resume.map(p => `<p>${p}</p>`).join('');
+                contactNotice.textContent = d.contact;
+                detailsBtn.textContent = detailsOpen ? d.detailsBtnClose : d.detailsBtn;
+                renderDetailsContent();
+            };
+
+            window.toggleDetails = function() {
+                detailsOpen = !detailsOpen;
+                const d = data[currentLang];
+                if (detailsOpen) {
+                    detailsContent.classList.add('open');
+                    detailsBtn.textContent = d.detailsBtnClose;
+                } else {
+                    detailsContent.classList.remove('open');
+                    detailsBtn.textContent = d.detailsBtn;
+                }
+            };
+
+            window.openModal = function() {
+                qrModal.classList.add('show');
+            };
+
+            window.closeModal = function() {
+                qrModal.classList.remove('show');
+            };
+
+            window.copySession = function() {
+                const id = sessionIdEl.textContent.trim();
+                navigator.clipboard.writeText(id).then(() => {
+                    showToast(data[currentLang].copied);
+                }).catch(() => {
+                    showToast(data[currentLang].failed);
+                });
+            };
+
+            function showToast(text) {
+                toastEl.textContent = text;
+                toastEl.classList.add('show');
+                setTimeout(() => {
+                    toastEl.classList.remove('show');
+                }, 2000);
             }
 
-            // Обработчики событий
-            sendBtn.addEventListener('click', sendMessage);
-            messageInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') sendMessage();
-            });
-        }
+            /* --- Стартовая отрисовка --- */
+            renderDetailsContent();
+        })();
     </script>
 </body>
 </html>
