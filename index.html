@@ -32,6 +32,30 @@
             padding: 30px 20px 25px;
         }
 
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .lang-flag {
+            font-size: 26px;
+            cursor: pointer;
+            transition: opacity 0.25s;
+            line-height: 1;
+            background: none;
+            border: none;
+            padding: 0;
+            opacity: 0.35;
+            filter: grayscale(100%);
+        }
+
+        .lang-flag.active {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
         .avatar {
             width: 130px;
             height: 130px;
@@ -63,31 +87,6 @@
             color: #c9a96e;
             margin-bottom: 16px;
             letter-spacing: 0.5px;
-        }
-
-        .lang-switch {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .lang-btn {
-            background: #2a2a2a;
-            border: 1px solid #444;
-            color: #999;
-            padding: 8px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.2s;
-        }
-
-        .lang-btn.active {
-            background: #c9a96e;
-            color: #0d0d0d;
-            border-color: #c9a96e;
-            font-weight: 600;
         }
 
         .resume {
@@ -394,14 +393,15 @@
     <div id="tg-error" class="error-screen">📱<br>Please open this card via Telegram</div>
 
     <div id="main-content" class="card" style="display: none;">
+        
+        <div class="lang-switch">
+            <button class="lang-flag active" onclick="setLang('en')">🇬🇧</button>
+            <button class="lang-flag" onclick="setLang('ru')">🇷🇺</button>
+        </div>
+
         <img src="photo.jpg" alt="Avatar" class="avatar" onclick="openAvatarModal()" />
         <div class="name" id="name-text"></div>
         <div class="role" id="role-text">Agent of Hidden Advantage</div>
-
-        <div class="lang-switch">
-            <button class="lang-btn active" onclick="setLang('en')">🇬🇧 EN</button>
-            <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
-        </div>
 
         <div class="resume" id="resume-text">
             <ul>
@@ -823,7 +823,7 @@
             const toastEl = document.getElementById('toast');
             const qrModal = document.getElementById('qrModal');
             const avatarModal = document.getElementById('avatarModal');
-            const langBtns = document.querySelectorAll('.lang-btn');
+            const langFlags = document.querySelectorAll('.lang-flag');
 
             /* --- Функции --- */
             function renderDetailsContent() {
@@ -842,12 +842,15 @@
 
             window.setLang = function(lang) {
                 currentLang = lang;
-                langBtns.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.textContent.includes(lang.toUpperCase())) {
-                        btn.classList.add('active');
-                    }
+                
+                langFlags.forEach(flag => {
+                    flag.classList.remove('active');
                 });
+                
+                const activeFlag = document.querySelector(`.lang-flag[onclick="setLang('${lang}')"]`);
+                if (activeFlag) {
+                    activeFlag.classList.add('active');
+                }
 
                 const d = data[lang];
                 nameText.textContent = d.name;
