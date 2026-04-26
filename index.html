@@ -434,7 +434,7 @@
         <div class="qr-section">
             <img src="qrcode.jpg" alt="Threema QR" class="qr-code" onclick="openModal()" />
             
-            <div class="session-id-wrapper">
+            <div class="session-id-wrapper" id="sessionIdWrapper">
                 <div class="session-id" id="sessionId" onclick="copySession()">
                     FSBZSAMS
                 </div>
@@ -838,6 +838,7 @@
             const detailsBtn = document.getElementById('details-btn');
             const detailsContent = document.getElementById('details-content');
             const sessionIdEl = document.getElementById('sessionId');
+            const sessionIdWrapper = document.getElementById('sessionIdWrapper');
             const copyToastEl = document.getElementById('copyToast');
             const qrModal = document.getElementById('qrModal');
             const avatarModal = document.getElementById('avatarModal');
