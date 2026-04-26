@@ -158,25 +158,6 @@
             opacity: 0.8;
         }
 
-        .session-id {
-            font-size: 11px;
-            color: #aaa;
-            word-break: break-all;
-            line-height: 1.4;
-            max-width: 280px;
-            margin: 0 auto;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 8px;
-            transition: background 0.2s;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .session-id:active {
-            background: #2a2a2a;
-        }
-
         .details-toggle {
             display: block;
             width: 100%;
@@ -417,9 +398,6 @@
 
         <div class="qr-section">
             <img src="qrcode.jpg" alt="Threema QR" class="qr-code" onclick="openModal()" />
-            <div class="session-id" id="sessionId" onclick="copySession()">
-                FSBZSAMS
-            </div>
 
             <button class="details-toggle" id="details-btn" onclick="toggleDetails()">Open Details</button>
             <div class="details-content" id="details-content"></div>
@@ -819,7 +797,6 @@
             const contactNotice = document.getElementById('contact-notice');
             const detailsBtn = document.getElementById('details-btn');
             const detailsContent = document.getElementById('details-content');
-            const sessionIdEl = document.getElementById('sessionId');
             const toastEl = document.getElementById('toast');
             const qrModal = document.getElementById('qrModal');
             const avatarModal = document.getElementById('avatarModal');
@@ -893,16 +870,6 @@
 
             window.closeAvatarModal = function() {
                 avatarModal.classList.remove('show');
-            };
-
-            window.copySession = function() {
-                /* Копируем только значение ID — FSBZSAMS */
-                const id = 'FSBZSAMS';
-                navigator.clipboard.writeText(id).then(() => {
-                    showToast(data[currentLang].copied);
-                }).catch(() => {
-                    showToast(data[currentLang].failed);
-                });
             };
 
             function showToast(text) {
