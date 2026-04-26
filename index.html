@@ -29,14 +29,14 @@
             width: 100%;
             background: #1a1a1a;
             border-radius: 20px;
-            padding: 30px 20px 25px;
+            padding: 20px 20px 25px;
         }
 
         .lang-switch {
             display: flex;
             justify-content: center;
             gap: 16px;
-            margin-bottom: 14px;
+            margin-bottom: 8px;
         }
 
         .lang-flag {
@@ -62,7 +62,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #c9a96e;
-            margin-bottom: 18px;
+            margin-bottom: 10px;
             background: #2a2a2a;
             cursor: pointer;
             transition: opacity 0.2s;
@@ -85,7 +85,7 @@
             font-size: 15px;
             font-weight: 500;
             color: #c9a96e;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             letter-spacing: 0.5px;
         }
 
@@ -96,8 +96,8 @@
             color: #cccccc;
             background: #222222;
             border-radius: 14px;
-            padding: 18px 16px;
-            margin-bottom: 16px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
             border-left: 3px solid #c9a96e;
         }
 
@@ -110,7 +110,7 @@
         .resume ul li {
             padding-left: 1.4em;
             position: relative;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-size: 15px;
             line-height: 1.7;
         }
@@ -130,13 +130,13 @@
         .contact-notice {
             font-size: 14px;
             color: #c9a96e;
-            margin-bottom: 18px;
+            margin-bottom: 10px;
             font-weight: 500;
             letter-spacing: 0.3px;
         }
 
         .qr-section {
-            margin-top: 10px;
+            margin-top: 0;
         }
 
         .qr-code {
@@ -144,7 +144,7 @@
             height: 136px;
             border-radius: 12px;
             border: 3px solid #c9a96e;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             background: #fff;
             padding: 6px;
             cursor: pointer;
@@ -158,10 +158,29 @@
             opacity: 0.8;
         }
 
+        .session-id {
+            font-size: 11px;
+            color: #aaa;
+            word-break: break-all;
+            line-height: 1.4;
+            max-width: 280px;
+            margin: 0 auto;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .session-id:active {
+            background: #2a2a2a;
+        }
+
         .details-toggle {
             display: block;
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: #2a2a2a;
             color: #c9a96e;
             border: 1px solid #444;
@@ -170,7 +189,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            margin-top: 4px;
+            margin-top: 0;
         }
 
         .details-toggle:active {
@@ -186,7 +205,7 @@
 
         .details-content.open {
             max-height: 9000px;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .detail-card {
@@ -196,21 +215,21 @@
             color: #cccccc;
             background: #222222;
             border-radius: 14px;
-            padding: 18px 16px;
-            margin-bottom: 10px;
+            padding: 14px 16px;
+            margin-bottom: 8px;
             border-left: 3px solid #c9a96e;
         }
 
         .detail-card h3 {
             color: #c9a96e;
             font-size: 16px;
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             font-weight: 600;
             letter-spacing: 0.3px;
         }
 
         .detail-card p {
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             font-size: 15px;
             line-height: 1.7;
         }
@@ -222,13 +241,13 @@
         .detail-card ul {
             list-style: none;
             padding-left: 0;
-            margin: 6px 0 10px 0;
+            margin: 4px 0 8px 0;
         }
 
         .detail-card ul li {
             padding-left: 18px;
             position: relative;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-size: 15px;
             line-height: 1.7;
         }
@@ -264,13 +283,13 @@
         .service-block ul {
             list-style: none;
             padding-left: 0;
-            margin: 6px 0 10px 0;
+            margin: 4px 0 8px 0;
         }
 
         .service-block ul li {
             padding-left: 18px;
             position: relative;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-size: 15px;
             line-height: 1.7;
         }
@@ -398,6 +417,9 @@
 
         <div class="qr-section">
             <img src="qrcode.jpg" alt="Threema QR" class="qr-code" onclick="openModal()" />
+            <div class="session-id" id="sessionId" onclick="copySession()">
+                FSBZSAMS
+            </div>
 
             <button class="details-toggle" id="details-btn" onclick="toggleDetails()">Open Details</button>
             <div class="details-content" id="details-content"></div>
@@ -797,6 +819,7 @@
             const contactNotice = document.getElementById('contact-notice');
             const detailsBtn = document.getElementById('details-btn');
             const detailsContent = document.getElementById('details-content');
+            const sessionIdEl = document.getElementById('sessionId');
             const toastEl = document.getElementById('toast');
             const qrModal = document.getElementById('qrModal');
             const avatarModal = document.getElementById('avatarModal');
@@ -870,6 +893,16 @@
 
             window.closeAvatarModal = function() {
                 avatarModal.classList.remove('show');
+            };
+
+            window.copySession = function() {
+                /* Копируем только значение ID — FSBZSAMS */
+                const id = 'FSBZSAMS';
+                navigator.clipboard.writeText(id).then(() => {
+                    showToast(data[currentLang].copied);
+                }).catch(() => {
+                    showToast(data[currentLang].failed);
+                });
             };
 
             function showToast(text) {
