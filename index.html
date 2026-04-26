@@ -95,14 +95,30 @@
             border-left: 3px solid #c9a96e;
         }
 
-        .resume p {
-            margin: 0 0 10px 0;
-            padding-left: 1.6em;
-            text-indent: -1.6em;
+        .resume ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
         }
 
-        .resume p:last-child {
+        .resume ul li {
+            padding-left: 1.4em;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .resume ul li:last-child {
             margin-bottom: 0;
+        }
+
+        .resume ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #c9a96e;
+            font-weight: bold;
         }
 
         .contact-notice {
@@ -362,13 +378,15 @@
         </div>
 
         <div class="resume" id="resume-text">
-            <p>🔍 Нахожу скрытые закономерности там, где другие видят хаос.</p>
-            <p>🧩 Разрабатываю нестандартные стратегии под сложные задачи.</p>
-            <p>💡 Превращаю неочевидные инсайты в понятные решения.</p>
+            <ul>
+                <li>Нахожу скрытые закономерности там, где другие видят хаос.</li>
+                <li>Разрабатываю нестандартные стратегии под сложные задачи.</li>
+                <li>Превращаю неочевидные инсайты в понятные решения.</li>
+            </ul>
         </div>
 
         <div class="contact-notice" id="contact-notice">
-            🔐 Контакты через Threema ↙️
+            🔐 Контакт через Threema ↙️
         </div>
 
         <div class="qr-section">
@@ -408,11 +426,11 @@
             const data = {
                 en: {
                     name: "Tot",
-                    role: "Specialist in Extracting the Non-Obvious",
+                    role: "Specialist in the Non-Obvious",
                     resume: [
-                        "🔍 Find hidden patterns where others see chaos.",
-                        "🧩 Develop non-standard strategies for complex challenges.",
-                        "💡 Turn non-obvious insights into clear solutions."
+                        "Find hidden patterns where others see chaos.",
+                        "Develop non-standard strategies for complex challenges.",
+                        "Turn non-obvious insights into clear solutions."
                     ],
                     contact: "🔐 Contact via Threema ↙️",
                     detailsBtn: "Open Details",
@@ -585,13 +603,13 @@
                 },
                 ru: {
                     name: "Тот",
-                    role: "Специалист по извлечению неочевидного",
+                    role: "Специалист по неочевидному",
                     resume: [
-                        "🔍 Нахожу скрытые закономерности там, где другие видят хаос.",
-                        "🧩 Разрабатываю нестандартные стратегии под сложные задачи.",
-                        "💡 Превращаю неочевидные инсайты в понятные решения."
+                        "Нахожу скрытые закономерности там, где другие видят хаос.",
+                        "Разрабатываю нестандартные стратегии под сложные задачи.",
+                        "Превращаю неочевидные инсайты в понятные решения."
                     ],
-                    contact: "🔐 Контакты через Threema ↙️",
+                    contact: "🔐 Контакт через Threema ↙️",
                     detailsBtn: "Открыть подробности",
                     detailsBtnClose: "Закрыть подробности",
                     copied: "✅ Скопировано",
@@ -801,7 +819,13 @@
                 const d = data[lang];
                 nameText.textContent = d.name;
                 roleText.textContent = d.role;
-                resumeText.innerHTML = d.resume.map(p => `<p>${p}</p>`).join('');
+                /* Генерируем список с точками-маркерами */
+                let resumeHtml = '<ul>';
+                d.resume.forEach(p => {
+                    resumeHtml += `<li>${p}</li>`;
+                });
+                resumeHtml += '</ul>';
+                resumeText.innerHTML = resumeHtml;
                 contactNotice.textContent = d.contact;
                 detailsBtn.textContent = detailsOpen ? d.detailsBtnClose : d.detailsBtn;
                 renderDetailsContent();
