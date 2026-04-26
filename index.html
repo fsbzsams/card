@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="robots" content="noindex, nofollow">
-    <title>Tot — Specialist in Extracting the Non-Obvious</title>
+    <title>Agent of Hidden Advantage</title>
     <style>
         * {
             box-sizing: border-box;
@@ -54,6 +54,7 @@
             color: #f0f0f0;
             margin-bottom: 4px;
             letter-spacing: 0.3px;
+            display: none;
         }
 
         .role {
@@ -393,9 +394,9 @@
     <div id="tg-error" class="error-screen">📱<br>Please open this card via Telegram</div>
 
     <div id="main-content" class="card" style="display: none;">
-        <img src="photo.jpg" alt="Tot" class="avatar" onclick="openAvatarModal()" />
-        <div class="name" id="name-text">Tot</div>
-        <div class="role" id="role-text">Specialist in Extracting the Non-Obvious</div>
+        <img src="photo.jpg" alt="Avatar" class="avatar" onclick="openAvatarModal()" />
+        <div class="name" id="name-text"></div>
+        <div class="role" id="role-text">Agent of Hidden Advantage</div>
 
         <div class="lang-switch">
             <button class="lang-btn active" onclick="setLang('en')">🇬🇧 EN</button>
@@ -404,9 +405,9 @@
 
         <div class="resume" id="resume-text">
             <ul>
-                <li>Вскрываю теневые структуры.</li>
+                <li>Вскрываю теневой контур.</li>
                 <li>Извлекаю скрытые данные.</li>
-                <li>Передаю наблюдаемые факты.</li>
+                <li>Передаю найденные факты.</li>
             </ul>
         </div>
 
@@ -430,7 +431,7 @@
     </div>
 
     <div class="modal" id="avatarModal" onclick="closeAvatarModal()">
-        <img src="photo.jpg" alt="Tot" class="avatar-modal" onclick="event.stopPropagation()" />
+        <img src="photo.jpg" alt="Avatar" class="avatar-modal" onclick="event.stopPropagation()" />
     </div>
 
     <div class="toast" id="toast"></div>
@@ -454,12 +455,12 @@
             /* --- Данные --- */
             const data = {
                 en: {
-                    name: "Tot",
-                    role: "Specialist in the Non-Obvious",
+                    name: "",
+                    role: "Agent of Hidden Advantage",
                     resume: [
-                        "Expose shadow structures.",
+                        "Expose shadow contour.",
                         "Extract hidden data.",
-                        "Deliver observed facts."
+                        "Deliver found facts."
                     ],
                     contact: "🔐 Contact via Threema ↙️",
                     detailsBtn: "Open Details",
@@ -632,12 +633,12 @@
                     ]
                 },
                 ru: {
-                    name: "Тот",
-                    role: "Специалист по неочевидному",
+                    name: "",
+                    role: "Агент скрытого преимущества",
                     resume: [
-                        "Вскрываю теневые структуры.",
+                        "Вскрываю теневой контур.",
                         "Извлекаю скрытые данные.",
-                        "Передаю наблюдаемые факты."
+                        "Передаю найденные факты."
                     ],
                     contact: "🔐 Контакт через Threema ↙️",
                     detailsBtn: "Открыть подробности",
