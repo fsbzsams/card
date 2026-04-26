@@ -97,6 +97,8 @@
 
         .resume p {
             margin: 0 0 10px 0;
+            padding-left: 1.4em;
+            text-indent: -1.4em;
         }
 
         .resume p:last-child {
@@ -135,8 +137,8 @@
         }
 
         .session-id {
-            font-size: 9px;
-            color: #888;
+            font-size: 11px;
+            color: #aaa;
             word-break: break-all;
             line-height: 1.4;
             max-width: 280px;
@@ -146,10 +148,16 @@
             border-radius: 8px;
             transition: background 0.2s;
             margin-bottom: 16px;
+            font-weight: 500;
         }
 
         .session-id:active {
             background: #2a2a2a;
+        }
+
+        .session-id .id-value {
+            color: #aaa;
+            font-weight: 500;
         }
 
         .details-toggle {
@@ -359,19 +367,19 @@
         </div>
 
         <div class="resume" id="resume-text">
-            <p>🔍 Find hidden patterns where others see chaos.</p>
-            <p>🧩 Develop non-standard strategies for complex challenges.</p>
-            <p>💡 Turn non-obvious insights into clear solutions.</p>
+            <p>🔍 Нахожу скрытые закономерности там, где другие видят хаос.</p>
+            <p>🧩 Разрабатываю нестандартные стратегии под сложные задачи.</p>
+            <p>💡 Превращаю неочевидные инсайты в понятные решения.</p>
         </div>
 
         <div class="contact-notice" id="contact-notice">
-            🔐 Контакты через Session ↙️
+            🔐 Контакты через Threema ↙️
         </div>
 
         <div class="qr-section">
-            <img src="qrcode.jpg" alt="Session QR" class="qr-code" onclick="openModal()" />
+            <img src="qrcode.jpg" alt="Threema QR" class="qr-code" onclick="openModal()" />
             <div class="session-id" id="sessionId" onclick="copySession()">
-                FSBZSAMS
+                Threema ID: <span class="id-value">FSBZSAMS</span>
             </div>
 
             <button class="details-toggle" id="details-btn" onclick="toggleDetails()">Open Details</button>
@@ -380,7 +388,7 @@
     </div>
 
     <div class="modal" id="qrModal" onclick="closeModal()">
-        <img src="qrcode.jpg" alt="Session QR" onclick="event.stopPropagation()" />
+        <img src="qrcode.jpg" alt="Threema QR" onclick="event.stopPropagation()" />
     </div>
 
     <div class="toast" id="toast"></div>
@@ -411,7 +419,7 @@
                         "🧩 Develop non-standard strategies for complex challenges.",
                         "💡 Turn non-obvious insights into clear solutions."
                     ],
-                    contact: "🔐 Contact via Session ↙️",
+                    contact: "🔐 Contact via Threema ↙️",
                     detailsBtn: "Open Details",
                     detailsBtnClose: "Close Details",
                     copied: "✅ Copied",
@@ -451,7 +459,7 @@
                         {
                             title: "🔄 Algorithm",
                             content: `
-                                <p><strong>1. First Contact — Session.</strong><br>You write to me on Session. A secure channel, no names. Briefly describe the request. If I see an opportunity to help — we arrange a closed meeting.</p>
+                                <p><strong>1. First Contact — Threema.</strong><br>You write to me on Threema. A secure channel, no names. Briefly describe the request. If I see an opportunity to help — we arrange a closed meeting.</p>
                                 <p><strong>2. Closed Meeting.</strong><br>Personal conversation or secure line call. We sign an NDA. We discuss the request comprehensively: essence, stakes, known risks, key figures. We select the service. We formulate 1–2 precise questions for the dream. We agree on a date and terms. If I understand I cannot be useful — I say so directly. Meeting without payment or obligation.</p>
                                 <p><strong>3. Context Immersion.</strong><br>You provide the outline: company structure, names of key figures, photos (if possible). No confidential figures — only a framework for tuning. I study public information. The subconscious needs to "recognize" the target.</p>
                                 <p><strong>4. Intention Setting.</strong><br>Before sleep, I formulate a precise request. For example: "I will see the hidden risks of transaction X" or "I will live through the negotiations from the opponent's side and learn their vulnerability."</p>
@@ -573,7 +581,7 @@
                             title: "📬 Contact",
                             content: `
                                 <ul>
-                                    <li>First contact — Session. Secure channel, no names. After NDA — a secure line for further work. My name does not appear in corporate systems. The report leaves no traces.</li>
+                                    <li>First contact — Threema. Secure channel, no names. After NDA — a secure line for further work. My name does not appear in corporate systems. The report leaves no traces.</li>
                                     <li>I work where numbers stay silent.<br>If your request is exactly there — you know how to reach me.</li>
                                 </ul>
                             `
@@ -588,7 +596,7 @@
                         "🧩 Разрабатываю нестандартные стратегии под сложные задачи.",
                         "💡 Превращаю неочевидные инсайты в понятные решения."
                     ],
-                    contact: "🔐 Контакты через Session ↙️",
+                    contact: "🔐 Контакты через Threema ↙️",
                     detailsBtn: "Открыть подробности",
                     detailsBtnClose: "Закрыть подробности",
                     copied: "✅ Скопировано",
@@ -628,7 +636,7 @@
                         {
                             title: "🔄 Алгоритм",
                             content: `
-                                <p><strong>1. Первый контакт — Session.</strong><br>Пишете мне в Session. Защищённый канал, никаких имён. Коротко описываете запрос. Если вижу возможность помочь — договариваемся о закрытой встрече.</p>
+                                <p><strong>1. Первый контакт — Threema.</strong><br>Пишете мне в Threema. Защищённый канал, никаких имён. Коротко описываете запрос. Если вижу возможность помочь — договариваемся о закрытой встрече.</p>
                                 <p><strong>2. Закрытая встреча.</strong><br>Личная беседа или звонок по защищённой линии. Подписываем NDA. Обсуждаем запрос комплексно: суть, ставки, известные риски, ключевые фигуры. Выбираем услугу. Формулируем 1–2 точных вопроса для сна. Договариваемся о дате и условиях. Если понимаю, что не смогу быть полезен, — говорю прямо. Встреча без оплаты и обязательств.</p>
                                 <p><strong>3. Погружение в контекст.</strong><br>Вы даёте контур: структуру компании, имена ключевых фигур, фото (если возможно). Никаких конфиденциальных цифр — только рамка для настройки. Изучаю публичную информацию. Подсознанию нужно «узнать» цель.</p>
                                 <p><strong>4. Настройка намерения.</strong><br>Перед сном формулирую точный запрос. Например: «Увижу скрытые риски сделки X» или «Проживу переговоры за оппонента и узнаю его уязвимость».</p>
@@ -750,7 +758,7 @@
                             title: "📬 Связаться",
                             content: `
                                 <ul>
-                                    <li>Первый контакт — Session. Защищённый канал, никаких имён. После NDA — защищённая линия для дальнейшей работы. Моё имя не появляется в корпоративных системах. Отчёт не оставляет следов.</li>
+                                    <li>Первый контакт — Threema. Защищённый канал, никаких имён. После NDA — защищённая линия для дальнейшей работы. Моё имя не появляется в корпоративных системах. Отчёт не оставляет следов.</li>
                                     <li>Работаю там, где молчат цифры.<br>Если ваш запрос именно там — вы знаете, как со мной связаться.</li>
                                 </ul>
                             `
@@ -825,7 +833,8 @@
             };
 
             window.copySession = function() {
-                const id = sessionIdEl.textContent.trim();
+                /* Копируем только значение ID — FSBZSAMS */
+                const id = 'FSBZSAMS';
                 navigator.clipboard.writeText(id).then(() => {
                     showToast(data[currentLang].copied);
                 }).catch(() => {
