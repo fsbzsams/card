@@ -306,14 +306,24 @@
             content: none;
         }
 
+        /* Стили для жирного текста без точки */
+        .bold-footer {
+            font-weight: 700;
+            padding-left: 0;
+        }
+
+        .bold-footer::before {
+            content: none !important;
+        }
+
         /* Стили для списка алгоритма */
-        .algorithm-list {
+        .detail-card ul.algorithm-list {
             list-style: none;
             padding-left: 0;
             margin: 0;
         }
 
-        .algorithm-list li {
+        .detail-card ul.algorithm-list li {
             padding-left: 1.8em;
             position: relative;
             margin-bottom: 10px;
@@ -321,33 +331,33 @@
             line-height: 1.7;
         }
 
-        .algorithm-list li:last-child {
+        .detail-card ul.algorithm-list li:last-child {
             margin-bottom: 0;
         }
 
-        .algorithm-list li::before {
-            content: "1.";
+        .detail-card ul.algorithm-list li::before {
             position: absolute;
             left: 0;
             color: #c9a96e;
             font-weight: bold;
         }
 
-        .algorithm-list li:nth-child(2)::before { content: "2."; }
-        .algorithm-list li:nth-child(3)::before { content: "3."; }
-        .algorithm-list li:nth-child(4)::before { content: "4."; }
-        .algorithm-list li:nth-child(5)::before { content: "5."; }
-        .algorithm-list li:nth-child(6)::before { content: "6."; }
-        .algorithm-list li:nth-child(7)::before { content: "7."; }
+        .detail-card ul.algorithm-list li:nth-child(1)::before { content: "1."; }
+        .detail-card ul.algorithm-list li:nth-child(2)::before { content: "2."; }
+        .detail-card ul.algorithm-list li:nth-child(3)::before { content: "3."; }
+        .detail-card ul.algorithm-list li:nth-child(4)::before { content: "4."; }
+        .detail-card ul.algorithm-list li:nth-child(5)::before { content: "5."; }
+        .detail-card ul.algorithm-list li:nth-child(6)::before { content: "6."; }
+        .detail-card ul.algorithm-list li:nth-child(7)::before { content: "7."; }
 
         /* Стили для списка метода */
-        .method-list {
+        .detail-card ul.method-list {
             list-style: none;
             padding-left: 0;
             margin: 0;
         }
 
-        .method-list li {
+        .detail-card ul.method-list li {
             padding-left: 1.4em;
             position: relative;
             margin-bottom: 10px;
@@ -355,11 +365,11 @@
             line-height: 1.7;
         }
 
-        .method-list li:last-child {
+        .detail-card ul.method-list li:last-child {
             margin-bottom: 0;
         }
 
-        .method-list li::before {
+        .detail-card ul.method-list li::before {
             content: "•";
             position: absolute;
             left: 0;
@@ -570,17 +580,6 @@
                             `
                         },
                         {
-                            title: "Confidentiality",
-                            content: `
-                                <ul class="method-list">
-                                    <li>First contact — only via Threema. Secure channel. No names. Nothing extra. Briefly describe the request. If I see an opportunity to help — we arrange a closed meeting. NDA. After signing — a secure line for further work.</li>
-                                    <li>I am not in corporate systems. Reports leave no traces. In reports — only roles and locations, no names. Your interest stays strictly between us.</li>
-                                    <li>I do not give advice. I provide only the data obtained. Conclusions are yours. If I feel bias or a conflict of interest — I decline the order.</li>
-                                    <li>This is not a mass product. This is precision reconnaissance in the shadow contour. If you understand what this is about — you know what to do. If not — your current analysis system is still holding up. Come back when it stops.</li>
-                                </ul>
-                            `
-                        },
-                        {
                             title: "Algorithm",
                             content: `
                                 <ul class="algorithm-list">
@@ -682,6 +681,18 @@
                                     <p><span class="price">Cost: $15,000 – $25,000 per meeting. Annual contract — $100,000 – $250,000. Absolute confidentiality.</span></p>
                                 </div>
                             `
+                        },
+                        {
+                            title: "Confidentiality",
+                            content: `
+                                <ul class="method-list">
+                                    <li>First contact — only via Threema. Secure channel. No names. Nothing extra. Briefly describe the request. If I see an opportunity to help — we arrange a closed meeting. NDA. After signing — a secure line for further work.</li>
+                                    <li>I am not in corporate systems. Reports leave no traces. In reports — only roles and locations, no names. Your interest stays strictly between us.</li>
+                                    <li>I do not give advice. I provide only the data obtained. Conclusions are yours. If I feel bias or a conflict of interest — I decline the order.</li>
+                                    <li>This is not a mass product. This is precision reconnaissance in the shadow contour.</li>
+                                    <li class="bold-footer">If you understand what this is about — you know what to do. If not — your current analysis system is still holding up. Come back when it stops.</li>
+                                </ul>
+                            `
                         }
                     ]
                 },
@@ -717,17 +728,6 @@
                                     <li>В осознанном сне мозг видит связи, заблокированные днём. Без фильтров. Без придумок. Моя задача — наблюдать, а не интерпретировать. Быть зеркалом, а не художником.</li>
                                     <li>Вы даёте запрос. Я вхожу в сновидение и фиксирую факты: что скрыто, где проявляется, как влияет. После пробуждения перевожу увиденное в деловой язык. Это не пророчества — это данные из поля ситуации.</li>
                                     <li>Мои данные — ваши решения.</li>
-                                </ul>
-                            `
-                        },
-                        {
-                            title: "Конфиденциальность",
-                            content: `
-                                <ul class="method-list">
-                                    <li>Первый контакт — только через Threema. Защищённый канал. Без имён. Без лишнего. Коротко описываете запрос. Если вижу возможность помочь — договариваемся о закрытой встрече. NDA. После подписания — защищённая линия для дальнейшей работы.</li>
-                                    <li>Меня нет в корпоративных системах. Отчёты не оставляют следов. В отчётах — только роли и локации, никаких имён. Ваш интерес останется строго между нами.</li>
-                                    <li>Не даю советов. Предоставляю только полученные данные. Выводы — ваши. Если чувствую предвзятость или конфликт интересов — отказываюсь от заказа.</li>
-                                    <li>Это не массовый продукт. Это точечная разведка в теневом контуре. Если вы понимаете, о чём речь — вы знаете, что делать. Если нет — значит, ваша текущая система анализа пока справляется. Возвращайтесь, когда перестанет.</li>
                                 </ul>
                             `
                         },
@@ -831,6 +831,20 @@
                                         <li>Не присутствую на заседаниях. За 24–48 часов до совета получаю повестку и материалы. Вхожу в сон. Утром передаю один абзац: картину скрытой динамики предстоящего заседания. Можете зачитать или использовать для подготовки.</li>
                                     </ul>
                                     <p><span class="price">Стоимость: $15 000 – $25 000 за заседание. Годовой контракт — $100 000 – $250 000. Абсолютная конфиденциальность.</span></p>
+                                </div>
+                            `
+                        },
+                        {
+                            title: "Конфиденциальность",
+                            content: `
+                                <div class="service-block">
+                                    <ul>
+                                        <li>Первый контакт — только через Threema. Защищённый канал. Без имён. Без лишнего. Коротко описываете запрос. Если вижу возможность помочь — договариваемся о закрытой встрече. NDA. После подписания — защищённая линия для дальнейшей работы.</li>
+                                        <li>Меня нет в корпоративных системах. Отчёты не оставляют следов. В отчётах — только роли и локации, никаких имён. Ваш интерес останется строго между нами.</li>
+                                        <li>Не даю советов. Предоставляю только полученные данные. Выводы — ваши. Если чувствую предвзятость или конфликт интересов — отказываюсь от заказа.</li>
+                                        <li>Это не массовый продукт. Это точечная разведка в теневом контуре.</li>
+                                    </ul>
+                                    <p><span class="price">Если вы понимаете, о чём речь — вы знаете, что делать. Если нет — значит, ваша текущая система анализа пока справляется. Возвращайтесь, когда перестанет.</span></p>
                                 </div>
                             `
                         }
