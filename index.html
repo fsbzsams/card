@@ -160,7 +160,7 @@
 
         .session-id-wrapper {
             position: relative;
-            max-width: 280px;
+            width: 136px;
             margin: 0 auto 12px;
             min-height: 32px;
             display: flex;
@@ -179,6 +179,7 @@
             transition: background 0.2s, opacity 0.2s;
             font-weight: 500;
             width: 100%;
+            text-align: center;
         }
 
         .session-id:active {
@@ -206,7 +207,7 @@
             font-weight: 600;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3s;
+            transition: opacity 0.2s;
         }
 
         .copy-toast.show {
@@ -434,7 +435,7 @@
         <div class="qr-section">
             <img src="qrcode.jpg" alt="Threema QR" class="qr-code" onclick="openModal()" />
             
-            <div class="session-id-wrapper" id="sessionIdWrapper">
+            <div class="session-id-wrapper">
                 <div class="session-id" id="sessionId" onclick="copySession()">
                     FSBZSAMS
                 </div>
@@ -838,7 +839,6 @@
             const detailsBtn = document.getElementById('details-btn');
             const detailsContent = document.getElementById('details-content');
             const sessionIdEl = document.getElementById('sessionId');
-            const sessionIdWrapper = document.getElementById('sessionIdWrapper');
             const copyToastEl = document.getElementById('copyToast');
             const qrModal = document.getElementById('qrModal');
             const avatarModal = document.getElementById('avatarModal');
@@ -924,7 +924,7 @@
                     setTimeout(() => {
                         copyToastEl.classList.remove('show');
                         sessionIdEl.classList.remove('hidden');
-                    }, 2000);
+                    }, 1000);
                 }).catch(() => {
                     copyToastEl.textContent = data[currentLang].failed;
                     copyToastEl.classList.add('show');
@@ -933,7 +933,7 @@
                     setTimeout(() => {
                         copyToastEl.classList.remove('show');
                         sessionIdEl.classList.remove('hidden');
-                    }, 2000);
+                    }, 1000);
                 });
             };
 
