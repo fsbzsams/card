@@ -29,7 +29,7 @@
             width: 100%;
             background: #1a1a1a;
             border-radius: 20px;
-            padding: 20px 20px 23px;
+            padding: 21px 20px 22px;
         }
 
         .lang-switch {
@@ -485,7 +485,7 @@
                     detailsBtn: "Open Details",
                     detailsBtnClose: "Close Details",
                     copied: "✅ Copied",
-                    failed: "⚠️ Copy failed",
+                    failed: "",
                     detailsCards: [
                         {
                             title: "Profile",
@@ -663,7 +663,7 @@
                     detailsBtn: "Открыть подробности",
                     detailsBtnClose: "Закрыть подробности",
                     copied: "✅ Скопировано",
-                    failed: "⚠️ Не удалось скопировать",
+                    failed: "",
                     detailsCards: [
                         {
                             title: "Профиль",
@@ -926,14 +926,7 @@
                         sessionIdEl.classList.remove('hidden');
                     }, 1000);
                 }).catch(() => {
-                    copyToastEl.textContent = data[currentLang].failed;
-                    copyToastEl.classList.add('show');
-                    sessionIdEl.classList.add('hidden');
-                    
-                    setTimeout(() => {
-                        copyToastEl.classList.remove('show');
-                        sessionIdEl.classList.remove('hidden');
-                    }, 1000);
+                    // Ничего не делаем при неудаче
                 });
             };
 
