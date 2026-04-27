@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, Helvetica, Arial, sans-serif;
             background: #0d0d0d;
             color: #e0e0e0;
             display: flex;
@@ -306,6 +306,67 @@
             content: none;
         }
 
+        /* Стили для списка алгоритма */
+        .algorithm-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .algorithm-list li {
+            padding-left: 1.8em;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .algorithm-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .algorithm-list li::before {
+            content: "1.";
+            position: absolute;
+            left: 0;
+            color: #c9a96e;
+            font-weight: bold;
+        }
+
+        .algorithm-list li:nth-child(2)::before { content: "2."; }
+        .algorithm-list li:nth-child(3)::before { content: "3."; }
+        .algorithm-list li:nth-child(4)::before { content: "4."; }
+        .algorithm-list li:nth-child(5)::before { content: "5."; }
+        .algorithm-list li:nth-child(6)::before { content: "6."; }
+        .algorithm-list li:nth-child(7)::before { content: "7."; }
+
+        /* Стили для списка метода */
+        .method-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .method-list li {
+            padding-left: 1.4em;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .method-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .method-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #c9a96e;
+            font-weight: bold;
+        }
+
         .service-block {
             margin: 0;
             font-size: 15px;
@@ -498,55 +559,38 @@
                             `
                         },
                         {
-                            title: "Principle",
+                            title: "Method",
                             content: `
-                                <ul>
-                                    <li>Every deal, company, or negotiation has a hidden part. It doesn't make it into reports, isn't spoken aloud at meetings, and isn't captured by conventional analysis. Yet it often determines the outcome. This is the shadow contour — a non-obvious layer of reality lying beyond ordinary perception.</li>
-                                    <li>Lucid dreaming is a tool for direct access there. No offices, model-building, or rumor collection. Input — your request. Output — observed facts from the situation's field: what is hidden, where it manifests, how it influences. These are not prophecies, but another method of information gathering. I collect — you decide.</li>
+                                <ul class="method-list">
+                                    <li>Deals, companies, and negotiations have a shadow contour — a hidden layer of reality beyond reports and meetings. It is this layer that determines the outcome. Lucid dreaming is direct access to it.</li>
+                                    <li>In a lucid dream, the brain sees connections blocked during the day. Without filters. Without fabrications. My task is to observe, not interpret. To be a mirror, not an artist.</li>
+                                    <li>You provide a request. I enter the dream and record facts: what is hidden, where it manifests, how it influences. Upon awakening, I translate what I saw into business language. These are not prophecies — this is data from the situation's field.</li>
+                                    <li>My data — your decisions.</li>
                                 </ul>
                             `
                         },
                         {
                             title: "Confidentiality",
                             content: `
-                                <ul>
-                                    <li>NDA before the first conversation.</li>
-                                    <li>I do not name names in reports — only roles and locations.</li>
-                                    <li>I do not advise "do this." I witness the picture. The conclusions are yours.</li>
-                                    <li>If I sense bias or a conflict of interest — I decline the order.</li>
-                                    <li>I keep a closed accuracy journal. Match statistics available after the first contract.</li>
+                                <ul class="method-list">
+                                    <li>First contact — only via Threema. Secure channel. No names. Nothing extra. Briefly describe the request. If I see an opportunity to help — we arrange a closed meeting. NDA. After signing — a secure line for further work.</li>
+                                    <li>I am not in corporate systems. Reports leave no traces. In reports — only roles and locations, no names. Your interest stays strictly between us.</li>
+                                    <li>I do not give advice. I provide only the data obtained. Conclusions are yours. If I feel bias or a conflict of interest — I decline the order.</li>
+                                    <li>This is not a mass product. This is precision reconnaissance in the shadow contour. If you understand what this is about — you know what to do. If not — your current analysis system is still holding up. Come back when it stops.</li>
                                 </ul>
                             `
                         },
                         {
                             title: "Algorithm",
                             content: `
-                                <p><strong>1. First Contact — Threema.</strong><br>You write to me on Threema. A secure channel, no names. Briefly describe the request. If I see an opportunity to help — we arrange a closed meeting.</p>
-                                <p><strong>2. Closed Meeting.</strong><br>Personal conversation or secure line call. We sign an NDA. We discuss the request comprehensively: essence, stakes, known risks, key figures. We select the service. We formulate 1–2 precise questions for the dream. We agree on a date and terms. If I understand I cannot be useful — I say so directly. Meeting without payment or obligation.</p>
-                                <p><strong>3. Context Immersion.</strong><br>You provide the outline: company structure, names of key figures, photos (if possible). No confidential figures — only a framework for tuning. I study public information. The subconscious needs to "recognize" the target.</p>
-                                <p><strong>4. Intention Setting.</strong><br>Before sleep, I formulate a precise request. For example: "I will see the hidden risks of transaction X" or "I will live through the negotiations from the opponent's side and learn their vulnerability."</p>
-                                <p><strong>5. The Dream.</strong><br>I enter a lucid dream. I hold the request. I observe. I do not control the picture — I accept it. The dream shows: where there is density, where there is rupture, where there is movement, where there is silence. I wake up — I write down everything I saw, heard, felt immediately.</p>
-                                <p><strong>6. Translation into Business Language.</strong><br>I extract meaning from observed facts. This is not symbol interpretation.<br>Example: "Rotten foundation" → hidden legal issue.<br>Example: "One figure sits with their back to the table" → one of the top executives is disengaged or sabotaging.<br>Example: "A mechanism overheating and smelling of burning" → the company is at its limit, possible deadline failure.</p>
-                                <p><strong>7. Delivery.</strong><br>A call or meeting. I present: what is hidden, where it manifests, how it influences. You ask questions. I don't defend the picture — I witness it. The conclusions are yours.</p>
-                            `
-                        },
-                        {
-                            title: "Mechanism",
-                            content: `
-                                <ul>
-                                    <li>The brain does not filter during sleep. It sees connections that are blocked during the day by logic, fears, and social norms.</li>
-                                    <li>No fabrications. Only observation. The task is to be a clean mirror, not an artist.</li>
-                                    <li>Accuracy confirmed. I keep a closed journal: request, observation, interpretation, real outcome. You will have access to these statistics.</li>
-                                </ul>
-                            `
-                        },
-                        {
-                            title: "Important",
-                            content: `
-                                <ul>
-                                    <li>This is not a prediction. It is an additional layer of information. The decision is always yours.</li>
-                                    <li>Sometimes the dream is silent. This is also a signal. I honestly say if there is no answer — you do not pay for emptiness.</li>
-                                    <li>I do not guarantee 100% accuracy. But the percentage is high enough that clients have worked with me for years.</li>
+                                <ul class="algorithm-list">
+                                    <li><strong>Contact</strong> — communication via Threema. Secure channel. Confidential. Briefly describe the request. If I see an opportunity to help — we arrange a closed meeting. If a personal meeting is impossible — a secure line call.</li>
+                                    <li><strong>Agreement</strong> — closed meeting or secure line call. NDA. We discuss the essence, stakes, key figures, known risks. We formulate 1–2 requests. We agree on the date and cost. If I understand I cannot help — I say so directly. The meeting is free and non-binding.</li>
+                                    <li><strong>Preparation</strong> — you outline the contour: company structure, names of key figures, photos. No figures — only context. I study open sources. The task — to give the subconscious an accurate image of the target.</li>
+                                    <li><strong>Tuning</strong> — I formulate the request agreed upon at the meeting. For example: "Expose shadow risks of the deal", "Read the opponent's hidden goals", "Detect potential tension nodes".</li>
+                                    <li><strong>Reading</strong> — I enter a lucid dream. I find the target. I hold the request. I observe without intervention. A structure emerges: tension zones, ruptures, hidden movement, silence. Upon awakening, I record all data: images, sounds, sensations.</li>
+                                    <li><strong>Summary</strong> — I extract meaning from the observed facts. I translate into business language. I do not interpret symbols, but capture the connection "image → risk".<br>Examples of such connections:<br>— Crumbling foundation → hidden legal vulnerability.<br>— Figure with back to the table → detachment or sabotage of a key person.<br>— Overheated mechanism → system at its limit, risk of breakdown.<br>One image reveals what figures do not see.</li>
+                                    <li><strong>Delivery</strong> — secure line call or closed meeting. I present the observed facts, their essence and possible consequences. You receive a clear picture of the hidden side of the situation. I answer questions. I do not defend what is seen — I explain it. Conclusions are ready. The decision is yours.</li>
                                 </ul>
                             `
                         },
@@ -638,16 +682,6 @@
                                     <p><span class="price">Cost: $15,000 – $25,000 per meeting. Annual contract — $100,000 – $250,000. Absolute confidentiality.</span></p>
                                 </div>
                             `
-                        },
-                        {
-                            title: "Secure Line",
-                            content: `
-                                <ul>
-                                    <li>First contact — Threema only. A secure channel. No names. No excess. Then — NDA. After signing, you receive a secure line for further work.</li>
-                                    <li>I am not in corporate systems. Reports leave no traces. Your interest stays strictly between us. This is not a mass product. This is precision reconnaissance in the shadow contour.</li>
-                                </ul>
-                                <p><strong>If you understand what this is about — you know what to do. If not — your current analysis system is still holding up. Come back when it stops.</strong></p>
-                            `
                         }
                     ]
                 },
@@ -676,55 +710,38 @@
                             `
                         },
                         {
-                            title: "Принцип",
+                            title: "Метод",
                             content: `
-                                <ul>
-                                    <li>У каждой сделки, компании или переговоров есть скрытая часть. Она не попадает в отчёты, не проговаривается на совещаниях, не улавливается привычными методами анализа. Но именно она часто определяет исход. Это теневой контур — неочевидный слой реальности, который лежит за пределами обычного восприятия.</li>
-                                    <li>Осознанное сновидение — инструмент прямого доступа туда. Никаких кабинетов, построения моделей, сбора слухов. На входе — ваш запрос. На выходе — наблюдаемые факты из поля ситуации: что скрыто, где проявляется, как влияет. Это не пророчества, а иной способ сбора информации. Я собираю — Вы решаете.</li>
+                                <ul class="method-list">
+                                    <li>У сделок, компаний и переговоров есть теневой контур — скрытый слой реальности за пределами отчётов и совещаний. Именно он определяет исход. Осознанное сновидение — прямой доступ туда.</li>
+                                    <li>В осознанном сне мозг видит связи, заблокированные днём. Без фильтров. Без придумок. Моя задача — наблюдать, а не интерпретировать. Быть зеркалом, а не художником.</li>
+                                    <li>Вы даёте запрос. Я вхожу в сновидение и фиксирую факты: что скрыто, где проявляется, как влияет. После пробуждения перевожу увиденное в деловой язык. Это не пророчества — это данные из поля ситуации.</li>
+                                    <li>Мои данные — ваши решения.</li>
                                 </ul>
                             `
                         },
                         {
                             title: "Конфиденциальность",
                             content: `
-                                <ul>
-                                    <li>NDA до первого разговора.</li>
-                                    <li>Не называю имён в отчётах — только роли и локации.</li>
-                                    <li>Не даю советов «делай так». Свидетельствую картину. Выводы — ваши.</li>
-                                    <li>Если чувствую предвзятость или конфликт интересов — отказываюсь от заказа.</li>
-                                    <li>Веду закрытый журнал точности. Статистика совпадений доступна после первого контракта.</li>
+                                <ul class="method-list">
+                                    <li>Первый контакт — только через Threema. Защищённый канал. Без имён. Без лишнего. Коротко описываете запрос. Если вижу возможность помочь — договариваемся о закрытой встрече. NDA. После подписания — защищённая линия для дальнейшей работы.</li>
+                                    <li>Меня нет в корпоративных системах. Отчёты не оставляют следов. В отчётах — только роли и локации, никаких имён. Ваш интерес останется строго между нами.</li>
+                                    <li>Не даю советов. Предоставляю только полученные данные. Выводы — ваши. Если чувствую предвзятость или конфликт интересов — отказываюсь от заказа.</li>
+                                    <li>Это не массовый продукт. Это точечная разведка в теневом контуре. Если вы понимаете, о чём речь — вы знаете, что делать. Если нет — значит, ваша текущая система анализа пока справляется. Возвращайтесь, когда перестанет.</li>
                                 </ul>
                             `
                         },
                         {
                             title: "Алгоритм",
                             content: `
-                                <p><strong>1. Первый контакт — Threema.</strong><br>Пишете мне в Threema. Защищённый канал, никаких имён. Коротко описываете запрос. Если вижу возможность помочь — договариваемся о закрытой встрече.</p>
-                                <p><strong>2. Закрытая встреча.</strong><br>Личная беседа или звонок по защищённой линии. Подписываем NDA. Обсуждаем запрос комплексно: суть, ставки, известные риски, ключевые фигуры. Выбираем услугу. Формулируем 1–2 точных вопроса для сна. Договариваемся о дате и условиях. Если понимаю, что не смогу быть полезен, — говорю прямо. Встреча без оплаты и обязательств.</p>
-                                <p><strong>3. Погружение в контекст.</strong><br>Вы даёте контур: структуру компании, имена ключевых фигур, фото (если возможно). Никаких конфиденциальных цифр — только рамка для настройки. Изучаю публичную информацию. Подсознанию нужно «узнать» цель.</p>
-                                <p><strong>4. Настройка намерения.</strong><br>Перед сном формулирую точный запрос. Например: «Увижу скрытые риски сделки X» или «Проживу переговоры за оппонента и узнаю его уязвимость».</p>
-                                <p><strong>5. Сон.</strong><br>Вхожу в осознанное сновидение. Удерживаю запрос. Наблюдаю. Не управляю картиной — принимаю её. Сон показывает: где плотность, где разрыв, где движение, где тишина. Просыпаюсь — сразу записываю всё что видел, слышал, чувствовал.</p>
-                                <p><strong>6. Перевод на деловой язык.</strong><br>Извлекаю смысл из наблюдаемых фактов. Это не толкование символов.<br>Пример: «Гнилой фундамент» → скрытая юридическая проблема.<br>Пример: «Одна фигура сидит спиной к столу» → кто-то из топов не вовлечён или саботирует.<br>Пример: «Механизм перегревается и пахнет гарью» → компания на пределе, возможен срыв сроков.</p>
-                                <p><strong>7. Передача.</strong><br>Звонок или встреча. Излагаю: что скрыто, где проявляется, как влияет. Вы задаёте вопросы. Не защищаю картину — свидетельствую её. Выводы — ваши.</p>
-                            `
-                        },
-                        {
-                            title: "Механизм",
-                            content: `
-                                <ul>
-                                    <li>Мозг во сне не фильтрует. Видит связи, которые днём заблокированы логикой, страхами, социальными нормами.</li>
-                                    <li>Никаких придумок. Только наблюдение. Задача — быть чистым зеркалом, а не художником.</li>
-                                    <li>Точность подтверждена. Веду закрытый журнал: запрос, наблюдение, интерпретация, реальный исход. У вас будет доступ к этой статистике.</li>
-                                </ul>
-                            `
-                        },
-                        {
-                            title: "Важное",
-                            content: `
-                                <ul>
-                                    <li>Это не предсказание. Это дополнительный слой информации. Решение всегда за вами.</li>
-                                    <li>Иногда сон молчит. Это тоже сигнал. Честно скажу, если ответа нет — вы не платите за пустоту.</li>
-                                    <li>100% точности не гарантирую. Но процент достаточно высок, чтобы клиенты работали со мной годами.</li>
+                                <ul class="algorithm-list">
+                                    <li><strong>Контакт</strong> — связь через Threema. Защищённый канал. Конфиденциально. Коротко описываете запрос. Если вижу возможность помочь — договариваемся о закрытой встрече. Если личная встреча невозможна — звонок по защищённой линии.</li>
+                                    <li><strong>Договор</strong> — закрытая встреча или звонок по защищённой линии. NDA. Обсуждаем суть, ставки, ключевые фигуры, известные риски. Формулируем 1–2 запроса. Согласуем дату и стоимость. Если понимаю, что не помогу, — говорю прямо. Встреча бесплатна и ни к чему не обязывает.</li>
+                                    <li><strong>Подготовка</strong> — вы обозначаете контур: структура компании, имена ключевых фигур, фото. Без цифр — только контекст. Я изучаю открытые источники. Задача — дать подсознанию точный образ цели.</li>
+                                    <li><strong>Настройка</strong> — формулирую запрос, согласованный на встрече. Например: «Вскрыть теневые риски сделки», «Считать скрытые цели оппонента», «Обнаружить потенциальные узлы напряжения».</li>
+                                    <li><strong>Считывание</strong> — вхожу в осознанное сновидение. Нахожу цель. Удерживаю запрос. Наблюдаю за происходящим без вмешательства. Проявляется структура: зоны напряжения, разрывы, скрытое движение, тишина. После пробуждения фиксирую все данные: образы, звуки, ощущения.</li>
+                                    <li><strong>Сводка</strong> — извлекаю смысл из увиденных фактов. Перевожу в деловой язык. Не толкую символы, а фиксирую связь «образ → риск».<br>Примеры таких связей:<br>— Разрушающийся фундамент → скрытая юридическая уязвимость.<br>— Фигура спиной к столу → отстранённость или саботаж ключевого лица.<br>— Перегретый механизм → система на пределе, угроза срыва.<br>Один образ вскрывает то, что не видят цифры.</li>
+                                    <li><strong>Передача</strong> — звонок по защищённой линии или закрытая встреча. Излагаю увиденные факты, их суть и возможные последствия. Вы получаете ясную картину скрытой стороны ситуации. Отвечаю на вопросы. Не защищаю увиденное — объясняю его. Выводы готовы. Решение — за вами.</li>
                                 </ul>
                             `
                         },
@@ -815,16 +832,6 @@
                                     </ul>
                                     <p><span class="price">Стоимость: $15 000 – $25 000 за заседание. Годовой контракт — $100 000 – $250 000. Абсолютная конфиденциальность.</span></p>
                                 </div>
-                            `
-                        },
-                        {
-                            title: "Защищённая линия",
-                            content: `
-                                <ul>
-                                    <li>Первый контакт — только через Threema. Это защищённый канал. Без имён. Без лишнего. Затем — NDA. После подписания вы получаете защищённую линию для дальнейшей работы.</li>
-                                    <li>Меня нет в корпоративных системах. Отчёты не оставляют следов. Ваш интерес останется строго между нами. Это не массовый продукт. Это точечная разведка в теневом контуре.</li>
-                                </ul>
-                                <p><strong>Если вы понимаете, о чём речь — вы знаете, что делать. Если нет — значит, ваша текущая система анализа пока справляется. Возвращайтесь, когда перестанет.</strong></p>
                             `
                         }
                     ]
