@@ -59,6 +59,8 @@
         .avatar {
             width: 130px;
             height: 130px;
+            min-width: 130px;
+            min-height: 130px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #c9a96e;
@@ -66,6 +68,9 @@
             background: #2a2a2a;
             cursor: pointer;
             transition: opacity 0.2s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .avatar:active {
@@ -142,6 +147,8 @@
         .qr-code {
             width: 136px;
             height: 136px;
+            min-width: 136px;
+            min-height: 136px;
             border-radius: 12px;
             border: 3px solid #c9a96e;
             margin-bottom: 12px;
@@ -564,86 +571,25 @@
                             title: "Algorithm",
                             content: `
                                 <ul>
-                                    <li><strong>Contact</strong> — Communication via secure channel. You outline the task — no names, only roles and locations. If I take it on — call, closed meeting, NDA. We discuss the essence, stakes, key figures. We formulate one or two requests. No figures — only context.</li>
+                                    <li><strong>Contact</strong> — Communication via secure channel. You outline the task — no names, only roles and locations. If I take it on — call, closed meeting, NDA. 100% prepayment. We discuss the essence, stakes, key figures. We formulate one or two requests. No figures — only context.</li>
                                     <li><strong>Solution</strong> — I study the information, formulate the task, enter a managed dream. I find the target, observe without intervention. I return, record, translate what I saw into business language.</li>
                                     <li><strong>Result</strong> — Secure line call, closed meeting. Oral report. No recording. No storage. In the summary — only roles and locations, no names or figures. I present the picture, essence, possible consequences. I answer questions. The decision is yours.</li>
                                 </ul>
                             `
                         },
                         {
-                            title: "Dream Due Diligence (Investment Reconnaissance)",
+                            title: "Services",
                             content: `
                                 <div class="service-block">
-                                    <p><strong>For:</strong> private investors, venture funds, family offices, CEOs before M&A.</p>
                                     <ul>
-                                        <li>You've already completed financial and legal due diligence. There remains a feeling of "something's off" — or you need intuitive validation before a major bet.</li>
-                                        <li>I enter a dream with the request "show what is hidden in deal X." By morning — a report: not "invest," but "a glass bridge over rusty water, the partner stands with their back turned — possible deception on their side."</li>
+                                        <li><strong>Deal Risk Reading</strong><br><em>For</em> — Investors, funds, family offices, CEOs before a deal.<br><em>Essence</em> — I read hidden risks and true intentions of the parties.<br><em>Result</em> — Deal risk map.<br><em>Price</em> — $20,000 – $30,000 / task. Package of three — $50,000 – $80,000.</li>
+                                        <li><strong>Competitor Hidden Risks</strong><br><em>For</em> — CEOs, strategy chiefs, R&D.<br><em>Essence</em> — I read the opponent's hidden state.<br><em>Result</em> — Vulnerabilities and upcoming moves.<br><em>Price</em> — $30,000 – $40,000 / task. Annual monitoring — $100,000 – $150,000.</li>
+                                        <li><strong>Blind Spot Report</strong><br><em>For</em> — CEOs, owners, board chairmen.<br><em>Essence</em> — I read zones of hidden tension inside the company.<br><em>Result</em> — Where the problem is that no one talks about.<br><em>Price</em> — $30,000 – $40,000 / one-time. Quarterly monitoring — $80,000 – $100,000 / year.</li>
+                                        <li><strong>Night Board of Directors</strong><br><em>For</em> — Owners, CEOs, founders.<br><em>Essence</em> — I read the hidden dynamics among key individuals.<br><em>Result</em> — Who is for, who is against, who is silent.<br><em>Price</em> — $30,000 – $40,000 / session. Quarterly — $80,000 – $100,000.</li>
+                                        <li><strong>Silent Board Member</strong><br><em>For</em> — Board chairmen, independent directors.<br><em>Essence</em> — I read the hidden dynamics of the upcoming meeting.<br><em>Result</em> — What won't make it into the minutes.<br><em>Price</em> — $20,000 – $30,000 / meeting. Annual contract — $100,000 – $250,000.</li>
+                                        <li><strong>Non-Verbal Negotiation Map</strong><br><em>For</em> — Managing partners, company heads.<br><em>Essence</em> — I read the hidden landscape of the meeting, tensions, breaks, triggers of the parties.<br><em>Result</em> — Where and when a hidden threat will manifest at the table.<br><em>Price</em> — $30,000 – $50,000 / session. Annual subscription — $200,000 – $400,000.</li>
+                                        <li><strong>Shadow Partner</strong><br><em>For</em> — Capital owners from $100M, founders.<br><em>Essence</em> — I provide access to hidden risks of your decisions.<br><em>Result</em> — Weekly map of hidden risks. Emergency access in crisis.<br><em>Price</em> — $200,000 – $300,000 / year. $1B+ capital — $500,000 – $1M / year.</li>
                                     </ul>
-                                    <p><span class="price">Cost: $15,000 – $30,000 per dream. Package of three deals — $40,000 – $70,000. 100% prepayment.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "Night Board of Directors (Avatar Consulting)",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>For:</strong> owners, CEOs, founders.</p>
-                                    <ul>
-                                        <li>You provide 3–7 personas: real people, departments, roles. I enter a dream, gather their avatars, and hold a session. I ask your questions. I listen to what people don't say aloud.</li>
-                                        <li>By morning — a protocol: who said what, how they looked, who was silent, who sat with their back turned.</li>
-                                    </ul>
-                                    <p><span class="price">Cost: $20,000 – $40,000 per session. Quarterly subscription — $45,000 – $80,000. 100% prepayment.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "Competitor Infiltration",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>For:</strong> CEOs, strategy chiefs, R&D, founders in fierce competitive battles.</p>
-                                    <ul>
-                                        <li>You provide the competitor's company name. I enter a dream and observe their "field": state, vulnerabilities, upcoming moves, internal conflicts. This is not espionage — I do not obtain documents. I read the picture.</li>
-                                        <li>Report: "the ship is painting its sides, but there's a leak inside" or "the mechanism is overheating, they are preparing an attack on your segment."</li>
-                                    </ul>
-                                    <p><span class="price">Cost: $20,000 – $35,000 per infiltration. Yearly competitor field monitoring — $100,000 – $180,000. No more than 2–3 infiltrations per year for one client.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "\"Black Box\" of Negotiations",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>For:</strong> company heads, managing partners, high-level lawyers and diplomats.</p>
-                                    <ul>
-                                        <li>You provide context: sides, subject, stakes. I enter a dream and live through the negotiations in turn for all participants. I search for breaking points, trigger phrases, hidden threats.</li>
-                                        <li>By morning — a negotiation map: atmosphere, breaking moment, gesture or phrase that changes the course, the most dangerous point.</li>
-                                    </ul>
-                                    <p><span class="price">Cost: $25,000 – $50,000 per session. Annual subscription — $200,000 – $400,000. 100% prepayment.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "Blind Spot Report",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>For:</strong> CEOs, owners, board chairmen.</p>
-                                    <ul>
-                                        <li>You provide the org chart and names of key top managers. I enter a dream with the request "show where the tension is in the company that is being kept silent about." The dream shows a picture: floors, colors, temperatures, sounds.</li>
-                                        <li>Report — 1–2 pages. No names. No accusations. Only locations and tensions.</li>
-                                    </ul>
-                                    <p><span class="price">Cost: $25,000 – $40,000 one-time. Quarterly monitoring — $80,000 – $120,000 per year.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "Silent Board Member",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>For:</strong> board chairmen, independent directors, owners.</p>
-                                    <ul>
-                                        <li>I do not attend meetings. 24–48 hours before the board meeting, I receive the agenda and materials. I enter a dream. By morning, I deliver one paragraph: a picture of the hidden dynamics of the upcoming meeting. You may read it aloud or use it for preparation.</li>
-                                    </ul>
-                                    <p><span class="price">Cost: $15,000 – $25,000 per meeting. Annual contract — $100,000 – $250,000. Absolute confidentiality.</span></p>
                                 </div>
                             `
                         },
@@ -654,7 +600,6 @@
                                     <ul>
                                         <li>This is not a mass product. This is precision reading of hidden risks.</li>
                                         <li>If your current situation analysis does not give you the full picture before a major decision, your actions — secure line, short request, closed meeting.</li>
-                                        <li>You decide.</li>
                                     </ul>
                                 </div>
                             `
@@ -691,86 +636,25 @@
                             title: "Алгоритм",
                             content: `
                                 <ul>
-                                    <li><strong>Контакт</strong> — Связь через защищённый канал. Вы обозначаете задачу — без имён, только роли и локации. Если берусь — звонок, закрытая встреча, NDA. Обсуждаем суть, ставки, ключевые фигуры. Формулируем один-два запроса. Без цифр — только контекст.</li>
+                                    <li><strong>Контакт</strong> — Связь через защищённый канал. Вы обозначаете задачу — без имён, только роли и локации. Если берусь — звонок, закрытая встреча, NDA. Предоплата 100%. Обсуждаем суть, ставки, ключевые фигуры. Формулируем один-два запроса. Без цифр — только контекст.</li>
                                     <li><strong>Решение</strong> — Изучаю информацию, формирую задачу, вхожу в управляемый сон. Нахожу цель, наблюдаю без вмешательства. Возвращаюсь, фиксирую, перевожу увиденное в деловой язык.</li>
                                     <li><strong>Результат</strong> — Звонок по защищённой линии, закрытая встреча. Устный доклад. Без записи. Без хранения. В сводке — только роли и локации, никаких имён и цифр. Излагаю картину, суть, возможные последствия. Отвечаю на вопросы. Решение — за вами.</li>
                                 </ul>
                             `
                         },
                         {
-                            title: "Сновидческий due diligence (инвест-разведка)",
+                            title: "Услуги",
                             content: `
                                 <div class="service-block">
-                                    <p><strong>Для:</strong> частных инвесторов, венчурных фондов, family office, CEO перед M&A.</p>
                                     <ul>
-                                        <li>Вы уже провели финансовый и юридический due diligence. Осталось чувство «что-то не так» — или нужна интуитивная валидация перед крупной ставкой.</li>
-                                        <li>Вхожу в сон с запросом «показать скрытое в сделке X». Утром — отчёт: не «вкладывайся», а «стеклянный мост над ржавой водой, партнёр стоит спиной — возможен обман с его стороны».</li>
+                                        <li><strong>Считывание рисков сделки</strong><br><em>Для</em> — Инвесторов, фондов, family office, CEO перед сделкой.<br><em>Суть</em> — Считываю скрытые риски и истинные намерения сторон.<br><em>Результат</em> — Карта рисков сделки.<br><em>Цена</em> — $20 000 – $30 000 / задача. Пакет из трёх — $50 000 – $80 000.</li>
+                                        <li><strong>Скрытые риски конкурента</strong><br><em>Для</em> — CEO, глав стратегий, R&D.<br><em>Суть</em> — Считываю скрытое состояние оппонента.<br><em>Результат</em> — Уязвимости и готовящиеся шаги.<br><em>Цена</em> — $30 000 – $40 000 / задача. Годовой мониторинг — $100 000 – $150 000.</li>
+                                        <li><strong>Отчёт о слепых зонах</strong><br><em>Для</em> — CEO, собственников, председателей советов.<br><em>Суть</em> — Считываю зоны скрытого напряжения внутри компании.<br><em>Результат</em> — Где проблема, о которой не говорят.<br><em>Цена</em> — $30 000 – $40 000 / раз. Квартальный мониторинг — $80 000 – $100 000 / год.</li>
+                                        <li><strong>Ночной совет директоров</strong><br><em>Для</em> — Собственников, CEO, основателей.<br><em>Суть</em> — Считываю скрытую динамику среди ключевых лиц.<br><em>Результат</em> — Кто за, кто против, кто молчит.<br><em>Цена</em> — $30 000 – $40 000 / сессия. Квартал — $80 000 – $100 000.</li>
+                                        <li><strong>Молчаливый член совета</strong><br><em>Для</em> — Председателей советов, независимых директоров.<br><em>Суть</em> — Считываю скрытую динамику предстоящего заседания.<br><em>Результат</em> — Что не попадёт в протокол.<br><em>Цена</em> — $20 000 – $30 000 / заседание. Годовой контракт — $100 000 – $250 000.</li>
+                                        <li><strong>Невербальная карта переговоров</strong><br><em>Для</em> — Управляющих партнёров, глав компаний.<br><em>Суть</em> — Считываю скрытый ландшафт встречи, напряжения, сломы, триггеры сторон.<br><em>Результат</em> — Где и когда проявится скрытая угроза за столом.<br><em>Цена</em> — $30 000 – $50 000 / сессия. Годовой абонемент — $200 000 – $400 000.</li>
+                                        <li><strong>Теневой партнёр</strong><br><em>Для</em> — Владельцев капитала от $100 млн, основателей.<br><em>Суть</em> — Обеспечиваю доступ к скрытым рискам ваших решений.<br><em>Результат</em> — Еженедельная карта скрытых рисков. Экстренный доступ в кризис.<br><em>Цена</em> — $200 000 – $300 000 / год. Капитал $1B+ — $500 000 – $1M / год.</li>
                                     </ul>
-                                    <p><span class="price">Стоимость: $15 000 – $30 000 за сон. Пакет из трёх сделок — $40 000 – $70 000. Предоплата 100%.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "Ночной совет директоров (консалтинг с аватарами)",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>Для:</strong> собственников, CEO, основателей.</p>
-                                    <ul>
-                                        <li>Даёте 3–7 персон: реальные люди, отделы, роли. Вхожу в сон, собираю их аватары и провожу заседание. Задаю ваши вопросы. Слушаю то, что люди не говорят вслух.</li>
-                                        <li>Утром — протокол: кто что сказал, как выглядел, кто молчал, кто сидел спиной.</li>
-                                    </ul>
-                                    <p><span class="price">Стоимость: $20 000 – $40 000 за сессию. Квартальный абонемент — $45 000 – $80 000. Предоплата 100%.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "Проникновение в конкурента",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>Для:</strong> CEO, глав стратегии, R&D, основателей в острой конкурентной борьбе.</p>
-                                    <ul>
-                                        <li>Даёте название компании-конкурента. Вхожу в сон и наблюдаю их «поле»: состояние, уязвимости, готовящиеся шаги, внутренние конфликты. Это не шпионаж — не добываю документы. Считываю картину.</li>
-                                        <li>Отчёт: «корабль красит борта, но внутри течь» или «механизм перегревается, готовят атаку на ваш сегмент».</li>
-                                    </ul>
-                                    <p><span class="price">Стоимость: $20 000 – $35 000 за проникновение. Мониторинг конкурентного поля на год — $100 000 – $180 000. Не более 2–3 проникновений в год для одного клиента.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "«Чёрный ящик» переговоров",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>Для:</strong> глав компаний, управляющих партнёров, юристов и дипломатов высокого уровня.</p>
-                                    <ul>
-                                        <li>Даёте контекст: стороны, предмет, ставки. Вхожу в сон и проживаю переговоры по очереди за всех участников. Ищу точки слома, фразы-триггеры, скрытые угрозы.</li>
-                                        <li>Утром — карта переговоров: атмосфера, момент слома, жест или фраза, меняющая ход, самая опасная точка.</li>
-                                    </ul>
-                                    <p><span class="price">Стоимость: $25 000 – $50 000 за сессию. Годовой абонемент — $200 000 – $400 000. Предоплата 100%.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "Blind Spot Report (Отчёт о слепых зонах)",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>Для:</strong> CEO, собственников, председателей советов.</p>
-                                    <ul>
-                                        <li>Даёте оргструктуру и имена ключевых топов. Вхожу в сон с запросом «показать, где в компании напряжение, о котором молчат». Сон показывает картину: этажи, цвета, температуры, звуки.</li>
-                                        <li>Отчёт — 1–2 страницы. Без имён. Без обвинений. Только локации и напряжения.</li>
-                                    </ul>
-                                    <p><span class="price">Стоимость: $25 000 – $40 000 разово. Квартальный мониторинг — $80 000 – $120 000 в год.</span></p>
-                                </div>
-                            `
-                        },
-                        {
-                            title: "Silent Board Member (Молчаливый член совета)",
-                            content: `
-                                <div class="service-block">
-                                    <p><strong>Для:</strong> председателей советов, независимых директоров, собственников.</p>
-                                    <ul>
-                                        <li>Не присутствую на заседаниях. За 24–48 часов до совета получаю повестку и материалы. Вхожу в сон. Утром передаю один абзац: картину скрытой динамики предстоящего заседания. Можете зачитать или использовать для подготовки.</li>
-                                    </ul>
-                                    <p><span class="price">Стоимость: $15 000 – $25 000 за заседание. Годовой контракт — $100 000 – $250 000. Абсолютная конфиденциальность.</span></p>
                                 </div>
                             `
                         },
@@ -781,7 +665,6 @@
                                     <ul>
                                         <li>Это не массовый продукт. Это точечное считывание скрытых рисков.</li>
                                         <li>Если ваш анализ ситуации не даёт полной картины перед важным решением, ваши действия — защищённая линия, короткий запрос, закрытая встреча.</li>
-                                        <li>Решаете вы.</li>
                                     </ul>
                                 </div>
                             `
