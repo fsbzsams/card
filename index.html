@@ -536,8 +536,26 @@
             }
 
             /* --- Состояние --- */
-            let currentLang = 'en';
+            let currentLang = 'en'; // По умолчанию английский
             let detailsOpen = false;
+
+            /* --- Автоопределение языка --- */
+            function detectLanguage() {
+                // Получаем язык из Telegram WebApp
+                if (window.Telegram?.WebApp?.initDataUnsafe?.user?.language_code) {
+                    const tgLang = window.Telegram.WebApp.initDataUnsafe.user.language_code;
+                    if (tgLang.startsWith('ru')) {
+                        return 'ru';
+                    }
+                }
+                // Получаем язык браузера
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang && browserLang.startsWith('ru')) {
+                    return 'ru';
+                }
+                // Для всех остальных случаев - английский
+                return 'en';
+            }
 
             /* --- Данные --- */
             const data = {
@@ -773,7 +791,8 @@
             };
 
             /* --- Стартовая инициализация --- */
-            setLang('en');
+            const detectedLang = detectLanguage();
+            setLang(detectedLang);
             renderDetailsContent();
         })();
     </script>
